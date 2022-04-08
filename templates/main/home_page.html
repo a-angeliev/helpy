@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block page_content %}
+    <div class="cont">
+</div>
+<div class="bg">
+</div>
+    <div class="login-ppl-image">
+        <img src="{% static 'images/ppl.png' %}">
+    </div>
+    <div class="home-title">
+         <h1 class="home-title1">Be kind.</h1>
+        <h1 class="home-title2">Help people, receive help.</h1>
+    </div>
+
+    <div class="home-description">
+        <p class="title-desc">Our mission is to connect the people who would like to help and those who need it.</p>
+    </div>
+    <div class="help">
+        <div class="help-someone">
+            <h2 class="help-someone-title">How can I help someone?</h2>
+            <p>There are several ways you can help someone - providing house, job or vital goods.</p>
+        </div>
+
+        <div class="receive_help">
+            <h2 class="help-someone-title">How can I receive help?</h2>
+            <p>You can look though the existing offers of people who'd like to help, providing you shelter or job.</p>
+        </div>
+    </div>
+
+    <div class="btn_register">
+        <a id="btn_register" href="{% url 'register as' %}">REGISTER</a>
+    </div>
+
+{% endblock %}

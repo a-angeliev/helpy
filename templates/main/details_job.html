@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block page_content %}
+
+    <h1 class="text-center">Shelter details</h1>
+    <div class="row">
+        <div class="col-lg-3"></div>
+        <div class="col-lg-6">
+            <p>Title: {{ object.title}}</p>
+            <p>Created on: {{ object.created_on }}</p>
+            <p>Description: {{ object.description }}</p>
+            <p>City: {{ object.city }}</p>
+            <p>Money: {{ object.money }}</p>
+            <p>Total: {{ object.is_total }}</p>
+
+            <p>Creator:</p>
+            <p>Name: {{ creator.first_name }} {{ creator.last_name }}</p>
+            <p>Phone: {{ creator.phone_number}}</p>
+            <p>Email: {{ object.user.email}}</p>
+
+{#            <form method="post" action="{% url 'profile edit' object.pk %}">#}
+{#                {% csrf_token %}#}
+{#                {{ form }}#}
+{##}
+{#                <button class="btn btn-primary mt-2" type="submit">Edit</button>#}
+{#            </form>#}
+        </div>
+        <div class="col-lg-3"></div>
+    </div>
+{% endblock %}

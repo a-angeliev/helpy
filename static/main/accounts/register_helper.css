@@ -1,0 +1,86 @@
+.cont-register-helper {
+    overflow: hidden;
+    position:relative;
+}
+.bg-register-helper {
+    position: absolute !important;
+    top: 50%;
+    left: 100%;
+    transform: translate(-50%, -50%);
+    height: 1500px;
+    width: 2000px;
+    border-radius: 1500px 0 0 1500px;
+    /*background-image: linear-gradient(180deg, #0093E9 0%, #48d2e1 50%, #80d0c7 100%);*/
+    /*opacity: 0.8;*/
+    z-index: -2;
+    background: transparent linear-gradient(180deg, #019ACA 0%, #4AE6AD 100%) 0% 0% no-repeat padding-box;
+    box-shadow: inset 0px 3px 6px #00000029, 0px 3px 6px #00000029;
+    opacity: 1;
+}
+
+
+#submit-register-form{
+    text-align: center;
+}
+#submit-register-form-btn{
+    top: 904px;
+    left: 384px;
+    width: 271px;
+    height: 73px;
+    background: #0EA7C6 0% 0% no-repeat padding-box;
+    box-shadow: 0px 3px 6px #00000029;
+    border-radius: 9px;
+    opacity: 1;
+    font: normal normal 600 25px/34px Open Sans;
+    letter-spacing: 0px;
+}
+
+.card-registration .select-input.form-control[readonly]:not([disabled]) {
+  font-size: 1rem;
+  line-height: 2.15;
+  padding-left: .75em;
+  padding-right: .75em;
+}
+.card-registration .select-arrow {
+  top: 13px;
+}
+/*.vh-100{*/
+/*    position: relative;*/
+/*    top: -100px;*/
+/*}*/
+.gradient-custom{
+    z-index: -0;
+    background: transparent;
+    position: relative;
+    top: -35px;
+    left: -300px;
+}
+
+
+/*Image Upload*/
+.image-preview{
+    width: 200px;
+    min-height: 100px;
+    height: 200px;
+    border: 2px solid #dddddd;
+    margin-top: 15px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: #cccccc;
+}
+.image-preview__image{
+    display: none;
+    width: 100%;
+    height: 200px;
+}
+
+/*background image*/
+#register-background-image{
+    position: relative;
+    top: 350px;
+    left: 120px;
+
+}

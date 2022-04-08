@@ -1,0 +1,188 @@
+.cont-help {
+  overflow: hidden;
+  position:relative;
+}
+
+.bg-help {
+        position: absolute !important;
+        top: -15%;
+        left: 95%;
+        transform: translate(-50%, -50%);
+        height: 1600px;
+        width: 1600px;
+        border-radius: 2000px 0 0 2000px;
+        /*background-image: linear-gradient(180deg, #0093E9 0%, #48d2e1 50%, #80d0c7 100%);*/
+        /*opacity: 0.8;*/
+        z-index: -1;
+        background: transparent linear-gradient(180deg, #019ACA 0%, #4AE6AD 100%) 0% 0% no-repeat padding-box;
+        box-shadow: inset 0px 3px 6px #00000029, 0px 3px 6px #00000029;
+        opacity: 1;
+}
+
+h1 {
+        font-family: 'Open Sans', sans-serif;
+        position: relative;
+        top: 120px;
+        left: 12%;
+        font-size: 40px;
+        font-weight: bold;
+}
+
+body { background: #eeeeee ; }
+
+.help-bubble {
+
+        width: 63px;
+        height: 63px;
+        border-radius: 50%;
+        display: flex;
+        font-size: 30px;
+        position: relative;
+        top: 31px;
+
+        margin: auto;
+        justify-content: center;
+        border-width: 1px;
+        border-style: solid;
+
+
+}
+.help-bubble p{
+     position: relative;
+        margin:auto;
+
+        /*top: 5px;*/
+        /*left: -1px;*/
+        /*text-align: center;*/
+        /*align-items: center;*/
+
+}
+#help-bubble-1{
+        background: #0EA8C4 0% 0% no-repeat padding-box;
+        box-shadow: 0px 3px 6px #00000029;
+}
+#help-bubble-2{
+        background: #3FDAB1 0% 0% no-repeat padding-box;
+        box-shadow: 0px 3px 6px #00000029;
+}
+#help-bubble-3{
+        background: #45DA3F 0% 0% no-repeat padding-box;
+        box-shadow: 0px 3px 6px #00000029;
+}
+/*.inside_icon{*/
+/*        !*background: rgba(14, 168, 196, 0.19) 0% 0% no-repeat padding-box;*!*/
+/*        !*opacity: 0.19;*!*/
+/*        width: 144px;*/
+/*        height: 144px;*/
+/*        border-radius: 50%;*/
+/*        display: flex;*/
+/*        align-items: center;*/
+/*        text-align: center;*/
+/*        font-size: 30px;*/
+/*        margin: auto;*/
+
+/*}*/
+#inside_icon_1{
+        background: rgba(14, 168, 196, 0.19) 0% 0% no-repeat padding-box;
+}
+#inside_icon_2{
+      background: rgba(63, 218, 177, 0.19) 0% 0% no-repeat padding-box;
+}
+#inside_icon_3{
+      background: rgba(69, 218, 63, 0.19) 0% 0% no-repeat padding-box;
+}
+
+.inside_icon img{
+        width: 64px;
+        height: 63px;
+        position: relative;
+        top: 28%;
+        left: 28%;
+        opacity: 1;
+}
+.inside_icon {
+
+        width: 144px;
+        height: 144px;
+        border-radius: 50%;
+        align-items: center;
+        position: relative;
+        margin: auto;
+        top: 25%;
+        /*left: 33%;*/
+        /*padding-top: 40px;*/
+        /*transform: translate(-50%, -50%);*/
+}
+.outscope-help {
+        float: left;
+        /*width: 30%;*/
+        width: 500px;
+        height: 1000px;
+        /*border-width: 1px;*/
+        /*border-style: solid;*/
+        margin-left: 50px;
+
+        /*box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.35);*/
+}
+.insidescope-help{
+        float: left;
+        border-width: 1px;
+        height: 500px;
+         box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.35);
+}
+.insidescope-help h2 {
+        width: 100%;
+        text-align: center;
+        font: normal normal bold 32px/43px Open Sans;
+        letter-spacing: 0px;
+        position: relative;
+
+        top: 100px;
+        left: 0%;
+}
+
+.insidescope-help p {
+        text-align: left;
+        font: normal normal normal 32px/43px Open Sans;
+        letter-spacing: 0px;
+        position: relative;
+        padding-top: 25px;
+        top: 100px;
+        margin-left: 30px;
+        margin-right: 30px;
+}
+#btn_register{
+        position: absolute;
+        left: 38%;
+}
+#box-div-help {
+        float: left;
+        width: 1700px;
+        position: relative;
+        top: 230px;
+        height: 700px;
+        left: 10%;
+        /*margin: auto;*/
+        /*justify-content: center;*/
+        /*border-width: 1px;*/
+        /*box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.35);*/
+}
+
+#box-div-help:after {
+  content: "";
+  display: table;
+  clear: both;
+
+}
+#clap{
+        position: relative;
+        width: 800px;
+        height: 800px;
+        top: 200px;
+        left: 70px;
+        /*left: 10%;*/
+}
+.bottom_img_help{
+
+}
+

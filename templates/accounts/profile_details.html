@@ -1,0 +1,110 @@
+{% extends "base.html" %}
+{% load static %}
+{% block page_content %}
+ <link rel='stylesheet' href="{% static 'main/accounts/profile_details.css' %}">
+    {% if is_owner %}
+<div class="container rounded bg-white mt-5 mb-5">
+    <div class="row">
+        <div class="col-md-3 border-right">
+            <div class="d-flex flex-column align-items-center text-center p-3 py-5">
+                <img class="rounded-circle mt-5" width="150px" src="{{ profile.picture }}">
+                <span class="font-weight-bold">{{ profile.first_name }}</span>
+                <span class="text-black-50">{{ profile.user.email }}</span>
+                <span class="text-black-50">
+                            {% if profile.user.is_staff %}
+                                Staff
+                            {%  elif profile.user.is_helper%}
+                                Helper
+                            {% elif profile.user.is_refugee%}
+                                Refugee
+                            {% endif %}
+                </span>
+                <span> </span>
+            </div>
+        </div>
+        <div class="col-md-5 border-right">
+            <div class="p-3 py-5">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h4 class="text-right">Profile Settings</h4>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-md-6"><label class="labels">Name</label><input type="text" class="form-control" placeholder="{{ profile.first_name }}" disabled value=""></div>
+                    <div class="col-md-6"><label class="labels">Surname</label><input type="text" class="form-control" value="" disabled placeholder="{{ profile.last_name }}"></div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-md-12"><label class="labels">Mobile Number</label><input type="text" class="form-control" placeholder="{{ profile.phone_number}}" disabled value=""></div>
+                    <div class="col-md-12"><label class="labels">Gender</label><input type="text" class="form-control" placeholder="{{ profile.gender}}" disabled value=""></div>
+                    <div class="col-md-12"><label class="labels">Date of birth</label><input type="text" class="form-control" placeholder="{{ profile.date_of_birth}}" disabled value=""></div>
+                    <div class="col-md-12"><label class="labels">Picture URL</label><input type="text" class="form-control" placeholder="{{ profile.picture}}" disabled value=""></div>
+                    <div class="col-md-12"><label class="labels">About yourself</label><textarea type="text" class="form-control" rows=5 placeholder="{{ profile.about_yourself }}" disabled ></textarea></div>
+                    <div class="col-md-12"><label class="labels">Last login</label><input type="text" class="form-control" placeholder="{{ profile.user.last_login}}" disabled value=""></div>
+                    <div class="col-md-12"><label class="labels">Date of join</label><input type="text" class="form-control" placeholder="{{ profile.user.date_joined}}" disabled value=""></div>
+
+
+
+                </div>
+{#                <div class="row mt-3">#}
+{#                    <div class="col-md-6"><label class="labels">Country</label><input type="text" class="form-control" placeholder="country" value=""></div>#}
+{#                    <div class="col-md-6"><label class="labels">State/Region</label><input type="text" class="form-control" value="" placeholder="state"></div>#}
+{#                </div>#}
+                <div class="mt-5 text-center"><a href="{% url 'profile edit' user.id %}"><button class="btn btn-primary profile-button" type="button">Edit Profile</button></a></div>
+                <a class="text-muted" id="chnage-passowrd-a" href="{% url 'change password' %}">Change password</a>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="p-3 py-5">
+                {{ own_length }}
+{#                <div class="d-flex justify-content-between align-items-center experience"><span>Edit Experience</span><span class="border px-3 p-1 add-experience">Experience</span></div><br>#}
+                {% for shelter in own_shelters %}
+                <div class="col-md-12">
+
+                        <div class="own-shelters">
+                        <div class="profile-card-title">
+                            {{ shelter.title }}
+                        </div>
+                        <div class="profile-card-descrition">
+                            {{ shelter.description|truncatechars:70 }}
+                        </div>
+                        <div class="profile-card-city">
+                            {{ shelter.city }}
+                        </div>
+                        <div class="profile-card-bullets">
+                            {% if shelter.ppl_number %}
+                                | People: {{ shelter.ppl_number }}
+                              {% endif %}
+                                {% if shelter.room_number %}
+                                    | Rooms: {{ shelter.room_number }}
+                              {% endif %}
+                              {% if shelter.has_wc %}
+                                | WC
+                              {% endif %}
+                              {% if shelter.has_net %}
+                                | Net
+                              {% endif %}
+                              {% if shelter.has_kitchen %}
+                                | Kitchen
+                              {% endif %}
+                              {% if shelter.has_tv %}
+                                | TV
+                              {% endif %}
+                              {% if shelter.has_garage %}
+                                | Garage
+                              {% endif %}
+                        </div>
+                        <div class="profile-card-edit"><a href="{% url 'edit shelter' shelter.id %}">Edit</a>              <a href="{% url 'delete shelter' shelter.id %}">Delete</a></div>
+
+                    </div>
+
+
+
+                </div> <br>
+                {% endfor %}
+{#                <div class="col-md-12"><label class="labels">Additional Details</label><input type="text" class="form-control" placeholder="additional details" value=""></div>#}
+            </div>
+        </div>
+    </div>
+</div>
+{% else %}
+    <h1 font-size="100px">YOU DONT HAVE PERMISION</h1>
+{% endif %}
+{% endblock %}

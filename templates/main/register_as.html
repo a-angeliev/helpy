@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block page_content %}
+    <link rel='stylesheet' href="{% static 'main/register_as.css' %}">
+
+    <div class="cont-register-as">
+    </div>
+
+    <div class="bg-register-as">
+        <div id="provide-help-background-image1">
+            <img src="{% static 'images/register.png' %}">
+        </div>
+    </div>
+
+
+    <div id="register_as">
+        <div id="register-title">
+             <h1 id="register-as-title">Register as</h1>
+        </div>
+        <div class="side-by-side" id="left">
+            <div class="text-left-center">
+                <p>I'm</p>
+                <p id="left-p">providing</p>
+                <p>help</p>
+            </div>
+
+            <div class="register_as_btn" id="register_as_btn-2">
+                <a href="{% url 'register helper user' %}">CONTINUE</a>
+            </div>
+        </div>
+        <div class="side-by-side" id="right">
+            <div class="text-left-center">
+                <p>I'm</p>
+                <p id="right-p">seeking</p>
+                <p>for help</p>
+            </div>
+
+            <div class="register_as_btn" id="register_as_btn-1">
+                 <a style="color: #0c3045; " href="{% url 'register refugee user' %}">CONTINUE</a>
+            </div>
+
+        </div>
+        <div class="register-backgound-image">
+
+        </div>
+    </div>
+
+{% endblock %}

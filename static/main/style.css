@@ -1,0 +1,130 @@
+.nav-link {
+    font-size: 25px;
+    margin-right: 0;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+}
+.navbar-brand{
+  font-size: 25px;
+}
+#logo {
+    font-family: 'Lobster Two', cursive;
+    font-size:48px;
+}
+
+
+/*body{*/
+/*    background-color: #000000;*/
+/*    overflow-x: hidden;*/
+/*    !*background-color: #FAFAFA;*!*/
+/*    !*background-color: #eeeeee;*!*/
+/*}*/
+body{
+    background: #eeeeee;
+    overflow-x: hidden;
+}
+.home-title {
+    font-family: 'Lobster Two', cursive;
+    position: absolute;
+    top: 250px;
+    left: 150px;
+    font-size: 100px;
+}
+.home-title h1 {
+    font-size: 100px;
+}
+
+.home-description {
+    position: absolute;
+    left: 150px;
+    top: 520px;
+}
+.home-description p {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 32px;
+    width: 960px;
+    text-align: left;
+    letter-spacing: 0px;
+    color: #000000;
+    opacity: 1;
+}
+
+.help {
+    position: absolute;
+    left: 150px;
+    top: 800px;
+    width: 960px;
+    margin: auto;
+}
+.help p{
+    font-family: 'Open Sans', sans-serif;
+    font-size: 32px;
+}
+.help h2{
+    font-family: 'Open Sans' , sans-serif;
+    font-size: 32px;
+    font-weight: bold;
+}
+.help-someone{
+    float: left;
+    width: 47%;
+
+}
+.receive_help{
+    width: 47%;
+    float: right;
+}
+.btn_register a {
+    position: absolute;
+    top: 1100px;
+    left: 150px;
+    width: 271px;
+    height: 73px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 25px;
+    color: #000000;
+    font-weight: 1000;
+    background: #0EA7C6 0% 0% no-repeat padding-box;
+    box-shadow: 0px 3px 6px #00000029;
+    border-radius: 9px;
+    opacity: 1;
+    text-align: center;
+    padding-top: 14px;
+
+}
+
+
+
+.cont {
+  overflow: hidden;
+  position:relative;
+}
+.bg {
+        position: absolute !important;
+        top: 50%;
+        left: 100%;
+        transform: translate(-50%, -50%);
+        height: 1500px;
+        width: 2000px;
+        border-radius: 1500px 0 0 1500px;
+        /*background-image: linear-gradient(180deg, #0093E9 0%, #48d2e1 50%, #80d0c7 100%);*/
+        /*opacity: 0.8;*/
+        z-index: -1;
+        background: transparent linear-gradient(180deg, #019ACA 0%, #4AE6AD 100%) 0% 0% no-repeat padding-box;
+        box-shadow: inset 0px 3px 6px #00000029, 0px 3px 6px #00000029;
+        opacity: 1;
+}
+
+
+.login-ppl-image {
+    position: absolute;
+    top: 37%;
+    right: 5%;
+/*    top: 250px;
+    left: 1000px*/
+
+}
+
+.navbar-custom {
+    background-color: #080f0e;
+}

@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block page_content %}
+<link rel='stylesheet' href="{% static 'main/provide-help-info.css' %}">
+    <div class="cont-help">
+    </div>
+
+    <div class="bg-help">
+
+    </div>
+
+    <h1 id="help-provide-title">There are 3 ways that you can help someone.</h1>
+
+    <div id="box-div-help">
+        <div class="outscope-help">
+            <div class="help-bubble" id="help-bubble-1">
+                <p>1</p>
+            </div>
+            <div class="insidescope-help">
+
+                <h2>Offer shelter</h2>
+                <p>Our mission is to connect the people who would like to help and those who need it</p>
+                <div class="inside_icon" id="inside_icon_1">
+                    <img src="{% static "images/home.png" %}">
+                </div>
+            </div>
+        </div>
+
+        <div class="outscope-help">
+            <div class="help-bubble" id="help-bubble-2">
+                <p>2</p>
+            </div>
+            <div class="insidescope-help">
+                <h2>Offer job</h2>
+                <p>Our mission is to connect the people who would like to help and those who need it</p>
+                <div class="inside_icon" id="inside_icon_2">
+                    <img src="{% static "images/zoom.png" %}">
+                </div>
+            </div>
+        </div>
+
+        <div class="outscope-help">
+            <div class="help-bubble" id="help-bubble-3">
+                <p>3</p>
+            </div>
+            <div class="insidescope-help">
+                <h2>Join goods</h2>
+                <p>Our mission is to connect the people who would like to help and those who need it</p>
+                <div class="inside_icon" id="inside_icon_3">
+                    <img src="{% static "images/gift.png" %}">
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="btn_register">
+        <a id="btn_register" href="{% url 'register as' %}">REGISTER</a>
+    </div>
+
+    <div class="bottom_img_help">
+        <img id="clap" src="{% static "images/claping.png"%}">
+    </div>
+{% endblock %}

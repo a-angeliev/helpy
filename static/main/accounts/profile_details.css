@@ -1,0 +1,75 @@
+body {
+    background: transparent linear-gradient(180deg, #019ACA 0%, #4AE6AD 100%) 0% 0% no-repeat padding-box;
+    height: 100%;
+    background-position: center 0;
+    /*background-repeat: no-repeat;*/
+    background-attachment: fixed;
+    background-size: cover;
+    -webkit-background-size: cover;
+    -o-background-size: cover;
+    -moz-background-size: cover;
+    /*-ms-background-size: cover;*/
+}
+
+.form-control:focus {
+    box-shadow: none;
+    border-color: #BA68C8
+}
+
+.profile-button {
+    background: rgb(99, 39, 120);
+    box-shadow: none;
+    border: none
+}
+
+.profile-button:hover {
+    background: #682773
+}
+
+.profile-button:focus {
+    background: #682773;
+    box-shadow: none
+}
+
+.profile-button:active {
+    background: #682773;
+    box-shadow: none
+}
+
+.back:hover {
+    color: #682773;
+    cursor: pointer
+}
+
+.labels {
+    font-size: 11px
+}
+
+.add-experience:hover {
+    background: #BA68C8;
+    color: #fff;
+    cursor: pointer;
+    border: solid 1px #BA68C8
+}
+
+#chnage-passowrd-a{
+    position: absolute;
+    width: 87%;
+    text-align:center;
+}
+
+/*SHELTER CSS*/
+.own-shelters{
+    border-style: solid;
+    border-width: 1px;
+    position: relative;
+    left: -30px;
+    width: 120%;
+    padding: 5px;
+    /*max-height: 150px;*/
+
+}
+.profile-card-title{
+    text-align: center;
+}
+

@@ -1,0 +1,34 @@
+.gradient-custom-2 {
+/* fallback for old browsers */
+/*background: #fccb90;*/
+
+/* Chrome 10-25, Safari 5.1-6 */
+/*background: transparent linear-gradient(180deg, #019ACA 0%, #4AE6AD 100%) 0% 0% no-repeat padding-box;*/
+
+/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+background: linear-gradient(to right, #019ACA, #4AE6AD);
+}
+body{
+    background-color: #eeeeee;
+}
+/*@media (min-width: 768px) {*/
+.gradient-form {
+height: 100vh !important;
+}
+/*}*/
+/*@media (min-width: 769px) {*/
+.gradient-custom-2 {
+border-top-right-radius: .3rem;
+border-bottom-right-radius: .3rem;
+}
+#login-create-register{
+    /*padding: 5px 5px 5px 5px;*/
+    background: linear-gradient(to right, #019ACA, #4AE6AD);
+}
+/*}*/
+/*#login-side-text{*/
+/*    border-style: solid;*/
+/*    border-width: 1px 1px 1px 1px;*/
+/*    background: #ffffff;*/
+/*    z-index: 100;*/
+/*}*/
