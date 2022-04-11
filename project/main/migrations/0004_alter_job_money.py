@@ -6,13 +6,16 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('main', '0003_alter_job_money_alter_job_user'),
+        ("main", "0003_alter_job_money_alter_job_user"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='job',
-            name='money',
-            field=models.CharField(choices=[['Single payment', 'Single payment'], ['Hourly', 'Hourly']], max_length=14),
+            model_name="job",
+            name="money",
+            field=models.CharField(
+                choices=[["Single payment", "Single payment"], ["Hourly", "Hourly"]],
+                max_length=14,
+            ),
         ),
     ]

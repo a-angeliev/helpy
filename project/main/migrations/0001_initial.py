@@ -16,34 +16,129 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name='Shelter',
+            name="Shelter",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('title', models.CharField(max_length=70, validators=[django.core.validators.MinLengthValidator(5)])),
-                ('created_on', models.DateTimeField(auto_now_add=True)),
-                ('city', models.CharField(choices=[['Sofia', 'Sofia'], ['Plovdiv', 'Plovdiv'], ['Varna', 'Varna'], ['Burgas', 'Burgas'], ['Ruse', 'Ruse'], ['Pleven', 'Pleven'], ['Sliven', 'Sliven'], ['Dobrich', 'Dobrich'], ['SHumen', 'SHumen'], ['PERNIK', 'PERNIK'], ['Yambol', 'Yambol']], max_length=7)),
-                ('description', models.TextField(max_length=255)),
-                ('ppl_number', models.IntegerField(validators=[django.core.validators.MaxValueValidator(100)])),
-                ('room_number', models.IntegerField(validators=[django.core.validators.MaxValueValidator(100)])),
-                ('has_wc', models.BooleanField(default=False)),
-                ('has_net', models.BooleanField(default=False)),
-                ('has_kitchen', models.BooleanField(default=False)),
-                ('has_tv', models.BooleanField(default=False)),
-                ('has_garage', models.BooleanField(default=False)),
-                ('user', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.DO_NOTHING, to=settings.AUTH_USER_MODEL)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "title",
+                    models.CharField(
+                        max_length=70,
+                        validators=[django.core.validators.MinLengthValidator(5)],
+                    ),
+                ),
+                ("created_on", models.DateTimeField(auto_now_add=True)),
+                (
+                    "city",
+                    models.CharField(
+                        choices=[
+                            ["Sofia", "Sofia"],
+                            ["Plovdiv", "Plovdiv"],
+                            ["Varna", "Varna"],
+                            ["Burgas", "Burgas"],
+                            ["Ruse", "Ruse"],
+                            ["Pleven", "Pleven"],
+                            ["Sliven", "Sliven"],
+                            ["Dobrich", "Dobrich"],
+                            ["SHumen", "SHumen"],
+                            ["PERNIK", "PERNIK"],
+                            ["Yambol", "Yambol"],
+                        ],
+                        max_length=7,
+                    ),
+                ),
+                ("description", models.TextField(max_length=255)),
+                (
+                    "ppl_number",
+                    models.IntegerField(
+                        validators=[django.core.validators.MaxValueValidator(100)]
+                    ),
+                ),
+                (
+                    "room_number",
+                    models.IntegerField(
+                        validators=[django.core.validators.MaxValueValidator(100)]
+                    ),
+                ),
+                ("has_wc", models.BooleanField(default=False)),
+                ("has_net", models.BooleanField(default=False)),
+                ("has_kitchen", models.BooleanField(default=False)),
+                ("has_tv", models.BooleanField(default=False)),
+                ("has_garage", models.BooleanField(default=False)),
+                (
+                    "user",
+                    models.ForeignKey(
+                        blank=True,
+                        null=True,
+                        on_delete=django.db.models.deletion.DO_NOTHING,
+                        to=settings.AUTH_USER_MODEL,
+                    ),
+                ),
             ],
         ),
         migrations.CreateModel(
-            name='Job',
+            name="Job",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('title', models.CharField(max_length=70, validators=[django.core.validators.MinLengthValidator(5)])),
-                ('created_on', models.DateField(auto_now_add=True)),
-                ('description', models.TextField(max_length=255)),
-                ('money', models.IntegerField(validators=[django.core.validators.MaxValueValidator(100)])),
-                ('is_total', models.BooleanField(default=True)),
-                ('city', models.CharField(choices=[['Sofia', 'Sofia'], ['Plovdiv', 'Plovdiv'], ['Varna', 'Varna'], ['Burgas', 'Burgas'], ['Ruse', 'Ruse'], ['Pleven', 'Pleven'], ['Sliven', 'Sliven'], ['Dobrich', 'Dobrich'], ['SHumen', 'SHumen'], ['PERNIK', 'PERNIK'], ['Yambol', 'Yambol']], max_length=7)),
-                ('user', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "title",
+                    models.CharField(
+                        max_length=70,
+                        validators=[django.core.validators.MinLengthValidator(5)],
+                    ),
+                ),
+                ("created_on", models.DateField(auto_now_add=True)),
+                ("description", models.TextField(max_length=255)),
+                (
+                    "money",
+                    models.IntegerField(
+                        validators=[django.core.validators.MaxValueValidator(100)]
+                    ),
+                ),
+                ("is_total", models.BooleanField(default=True)),
+                (
+                    "city",
+                    models.CharField(
+                        choices=[
+                            ["Sofia", "Sofia"],
+                            ["Plovdiv", "Plovdiv"],
+                            ["Varna", "Varna"],
+                            ["Burgas", "Burgas"],
+                            ["Ruse", "Ruse"],
+                            ["Pleven", "Pleven"],
+                            ["Sliven", "Sliven"],
+                            ["Dobrich", "Dobrich"],
+                            ["SHumen", "SHumen"],
+                            ["PERNIK", "PERNIK"],
+                            ["Yambol", "Yambol"],
+                        ],
+                        max_length=7,
+                    ),
+                ),
+                (
+                    "user",
+                    models.ForeignKey(
+                        blank=True,
+                        null=True,
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to=settings.AUTH_USER_MODEL,
+                    ),
+                ),
             ],
         ),
     ]

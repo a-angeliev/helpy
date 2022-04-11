@@ -1,11 +1,12 @@
-from django.contrib.auth import forms as auth_forms, get_user_model
+from django.contrib.auth import forms as auth_forms, login
 from django import forms
 
 
 from project.accounts.models import Profile, ProjectUser
 from project.common.helpers import BootstrapFormMixin, DisabledFieldsFormMixin
 
-UserModel = get_user_model()
+UserModel = auth_forms.get_user_model()
+
 
 class CreateProfileFormAbstract(BootstrapFormMixin, auth_forms.UserCreationForm):
     IS_STAFF = False
@@ -13,13 +14,9 @@ class CreateProfileFormAbstract(BootstrapFormMixin, auth_forms.UserCreationForm)
     IS_HELPER = False
     IS_REFUGEE = False
 
-    first_name = forms.CharField(
-        max_length=Profile.FIRST_NAME_MAX_LENGTH
-    )
-    last_name = forms.CharField(
-        max_length=Profile.LAST_NAME_MAX_LENGTH
-    )
-    picture = forms.URLField()
+    first_name = forms.CharField(max_length=Profile.FIRST_NAME_MAX_LENGTH)
+    last_name = forms.CharField(max_length=Profile.LAST_NAME_MAX_LENGTH)
+    profile_image = forms.ImageField()
     phone_number = forms.IntegerField()
     date_of_birth = forms.DateField()
     gender = forms.ChoiceField(
@@ -27,13 +24,16 @@ class CreateProfileFormAbstract(BootstrapFormMixin, auth_forms.UserCreationForm)
     )
     about_yourself = forms.CharField(
         # max_length=Profile.ABOUT_YOURSELF_MAX_LENGTH,
-        widget=forms.Textarea(attrs={
-            'rows':4,
-        })
+        widget=forms.Textarea(
+            attrs={
+                "rows": 4,
+            }
+        )
     )
 
-    def __init__(self, *args, **kwargs):
+    def __init__(self,request, *args, **kwargs):
         super().__init__(*args, **kwargs)
+        self.request = request
         self._init_bootstrap_form_controls()
 
     def save(self, commit=True):
@@ -45,46 +45,61 @@ class CreateProfileFormAbstract(BootstrapFormMixin, auth_forms.UserCreationForm)
         user.save()
 
         profile = Profile(
-            first_name=self.cleaned_data['first_name'],
-            last_name=self.cleaned_data['last_name'],
-            picture=self.cleaned_data['picture'],
-            phone_number=self.cleaned_data['phone_number'],
-            date_of_birth=self.cleaned_data['date_of_birth'],
-            gender=self.cleaned_data['gender'],
-            about_yourself=self.cleaned_data['about_yourself'],
+            first_name=self.cleaned_data["first_name"],
+            last_name=self.cleaned_data["last_name"],
+            profile_image=self.cleaned_data["profile_image"],
+            phone_number=self.cleaned_data["phone_number"],
+            date_of_birth=self.cleaned_data["date_of_birth"],
+            gender=self.cleaned_data["gender"],
+            about_yourself=self.cleaned_data["about_yourself"],
             user=user,
         )
 
         if commit:
             profile.save()
+            auth_user = auth_forms.authenticate(
+                username=self.cleaned_data['email'],
+                password=self.cleaned_data['password1']
+            )
+            login(self.request, auth_user)
         return user
 
     class Meta:
-        model = get_user_model()
-        fields = ('email', 'password1', 'password2','first_name', 'last_name',
-                  'picture', 'phone_number', 'date_of_birth', 'gender', 'about_yourself',)
+        model = auth_forms.get_user_model()
+        fields = (
+            "email",
+            "password1",
+            "password2",
+            "first_name",
+            "last_name",
+            "profile_image",
+            "phone_number",
+            "date_of_birth",
+            "gender",
+            "about_yourself",
+        )
 
         widgets = {
-            'first_name' : forms.TextInput(
+            "first_name": forms.TextInput(
                 attrs={
-                    'placeholder': "Enter first name",
+                    "placeholder": "Enter first name",
                 },
             ),
-            'last_name' : forms.TextInput(
+            "last_name": forms.TextInput(
                 attrs={
-                    'placeholder' :"Enter last name",
+                    "placeholder": "Enter last name",
                 },
             ),
-            'picture' : forms.TextInput(
+            "picture": forms.TextInput(
                 attrs={
-                    'placeholder':"Enter URL",
+                    "placeholder": "Enter URL",
                 },
             ),
-            'email': forms.EmailInput(
+            "email": forms.EmailInput(
                 attrs={
-                    'placeholder': 'Enter some Email:',
-                    'id': "form2Example11",
-                    'class': "123",
+                    "placeholder": "Enter some Email:",
+                    "id": "form2Example11",
+                    "class": "123",
                 },
             ),
         }
@@ -125,7 +140,6 @@ class DeleteProfileForm(BootstrapFormMixin, DisabledFieldsFormMixin, forms.Model
 
 
 class EditProfileForm(BootstrapFormMixin, forms.ModelForm):
-
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self._init_bootstrap_form_controls()

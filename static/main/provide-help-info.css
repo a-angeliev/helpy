@@ -37,13 +37,13 @@ body { background: #eeeeee ; }
         border-radius: 50%;
         display: flex;
         font-size: 30px;
-        position: relative;
-        top: 31px;
+        /*position: relative;*/
+        /*top: 31px;*/
 
-        margin: auto;
-        justify-content: center;
-        border-width: 1px;
-        border-style: solid;
+        /*margin: auto;*/
+        /*justify-content: center;*/
+        /*border-width: 1px;*/
+        /*border-style: solid;*/
 
 
 }
@@ -128,7 +128,7 @@ body { background: #eeeeee ; }
         float: left;
         border-width: 1px;
         height: 500px;
-         box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.35);
+        box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.35);
 }
 .insidescope-help h2 {
         width: 100%;

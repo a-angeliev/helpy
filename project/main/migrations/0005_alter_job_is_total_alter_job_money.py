@@ -7,18 +7,23 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('main', '0004_alter_job_money'),
+        ("main", "0004_alter_job_money"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='job',
-            name='is_total',
-            field=models.CharField(choices=[['Single payment', 'Single payment'], ['Hourly', 'Hourly']], max_length=14),
+            model_name="job",
+            name="is_total",
+            field=models.CharField(
+                choices=[["Single payment", "Single payment"], ["Hourly", "Hourly"]],
+                max_length=14,
+            ),
         ),
         migrations.AlterField(
-            model_name='job',
-            name='money',
-            field=models.IntegerField(validators=[django.core.validators.MaxValueValidator(100)]),
+            model_name="job",
+            name="money",
+            field=models.IntegerField(
+                validators=[django.core.validators.MaxValueValidator(100)]
+            ),
         ),
     ]

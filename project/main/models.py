@@ -1,14 +1,11 @@
 
-
 from django.contrib.auth import get_user_model
 from django.core.validators import MinLengthValidator, MaxValueValidator
 from django.db import models
 
-# Create your models here.
-from django.http import request
 
 from project.accounts.models import Profile
-from project.common.helpers import CityOption, PaymentOptions
+from project.common.helpers import CityOption, PaymentOptions, PictureOptions
 
 UserModel = get_user_model()
 
@@ -19,11 +16,15 @@ class Shelter(models.Model):
 
     MAX_DESCRIPTION_LENGTH = 255
 
+    MAX_NUMBER_OF_PEOPLE = 100
+    MIN_NUMBER_OF_PEOPLE =1
+
+    MAX_ROOM_NUMBER = 100
+    MIN_ROOM_NUMBER = 1
+
     title = models.CharField(
-        max_length= MAX_TITLE_LENGTH,
-        validators=(
-            MinLengthValidator(MIN_TITLE_LENGTH),
-        ),
+        max_length=MAX_TITLE_LENGTH,
+        validators=(MinLengthValidator(MIN_TITLE_LENGTH),),
     )
 
     created_on = models.DateTimeField(
@@ -41,13 +42,14 @@ class Shelter(models.Model):
 
     ppl_number = models.IntegerField(
         validators=(
-            MaxValueValidator(100),
+            MaxValueValidator(MAX_NUMBER_OF_PEOPLE),
+            MinLengthValidator(MIN_NUMBER_OF_PEOPLE),
         )
     )
 
-    room_number = models.IntegerField(
-        validators=(
-            MaxValueValidator(100),
+    room_number = models.IntegerField(validators=(
+            MaxValueValidator(MAX_ROOM_NUMBER),
+            MinLengthValidator(MIN_ROOM_NUMBER),
         )
     )
 
@@ -79,9 +81,7 @@ class Job(models.Model):
 
     title = models.CharField(
         max_length=MAX_TITLE_LENGTH,
-        validators=(
-            MinLengthValidator(MIN_TITLE_LENGTH),
-        ),
+        validators=(MinLengthValidator(MIN_TITLE_LENGTH),),
     )
 
     created_on = models.DateField(
@@ -92,11 +92,7 @@ class Job(models.Model):
         max_length=MAX_DESCRIPTION_LENGTH,
     )
 
-    money = models.IntegerField(
-        validators=(
-            MaxValueValidator(100),
-        )
-    )
+    money = models.IntegerField(validators=(MaxValueValidator(10000),))
 
     compensation = models.CharField(
         max_length=PaymentOptions().max_payment_length(),
@@ -109,3 +105,64 @@ class Job(models.Model):
     )
 
     user = models.ForeignKey(Profile, null=True, blank=True, on_delete=models.CASCADE)
+
+
+class Questionnaire(models.Model):
+
+    TEXT_FIELD_MAX_LENGTH = 512
+
+    created_on = models.DateTimeField(auto_now_add=True)
+    food = models.BooleanField()
+    blankets = models.BooleanField()
+    cloths = models.BooleanField()
+    home = models.BooleanField()
+    toys = models.BooleanField()
+    money = models.BooleanField()
+    electric_appliances = models.BooleanField()
+    transportation = models.BooleanField()
+    phone = models.BooleanField()
+    pills = models.BooleanField()
+    others = models.BooleanField()
+    description = models.TextField(
+        max_length=TEXT_FIELD_MAX_LENGTH,
+    )
+
+    user = models.ForeignKey(Profile, null=True, blank=True, on_delete=models.CASCADE)
+
+
+class Campaign(models.Model):
+
+    MAX_TITLE_LENGTH = 70
+    MAX_DESCRIPTION_LENGTH = 512
+    MAX_WHEN_LENGTH = 70
+    MAX_WHERE_LENGTH = 70
+
+    picture = models.CharField(
+        max_length=1000,
+        choices=PictureOptions.PICTURES,
+        null=True,
+    )
+    created_on = models.DateTimeField(auto_now_add=True)
+
+    title = models.CharField(
+        max_length=MAX_TITLE_LENGTH,
+    )
+
+    description = models.TextField(
+        max_length=MAX_DESCRIPTION_LENGTH,
+        null=True,
+        blank=True,
+    )
+
+    when = models.CharField(
+        max_length=MAX_WHEN_LENGTH,
+    )
+
+    where = models.CharField(
+        max_length=MAX_WHERE_LENGTH,
+    )
+
+    user = models.ForeignKey(UserModel, null=True, blank=True, on_delete=models.CASCADE)
+
+
+

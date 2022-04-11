@@ -1,0 +1,115 @@
+.cont-help {
+    overflow: hidden;
+    position:relative;
+}
+
+.bg-help {
+    position: absolute !important;
+    top: -15%;
+    left: 95%;
+    transform: translate(-50%, -50%);
+    height: 1600px;
+    width: 1600px;
+    border-radius: 2000px 0 0 2000px;
+    z-index: -1;
+    background: transparent linear-gradient(180deg, #019ACA 0%, #4AE6AD 100%) 0% 0% no-repeat padding-box;
+    box-shadow: inset 0px 3px 6px #00000029, 0px 3px 6px #00000029;
+    opacity: 1;
+}
+#campaign-page {
+    position: relative;
+    width: 70%;
+    left: 5%;
+    top: 80px;
+    margin-bottom: 130px;
+    /*border-style: solid;*/
+    /*border-width: 1px;*/
+}
+#campaign-page-description p{
+    text-align: left;
+    font: normal normal normal 32px/43px Open Sans;
+    letter-spacing: 0px;
+    color: #000000;
+    opacity: 1;
+}
+#campaign-page-title{
+    position: relative;
+    margin-top: 50px;
+}
+.campaign-card{
+    position:relative;
+    width: 80%;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    box-shadow: inset 0px 1px 1px #00000029, 0px 3px 6px #00000029;
+    border-radius: 8px;
+    opacity: 1;
+}
+
+.campaign-card{
+    display: flex;
+    width: 100%;
+    margin-top:50px;
+    margin-bottom: 50px;
+}
+.card-description{
+    position: relative;
+    width: 50%;
+    margin-top: 24px;
+    margin-bottom: 24px;
+    border-style: solid;
+    border-width: 0 1px 0 0;
+}
+.card-position{
+    position:relative;
+    width: 35%;
+    margin-top: 24px;
+    margin-bottom: 24px;
+}
+.card-img{
+    position:relative;
+    width: 15%;
+    text-align: center;
+    margin: auto;
+}
+.card-title{
+    text-align: left;
+    font: normal normal bold 32px/43px Open Sans;
+    letter-spacing: 0px;
+    color: #000000;
+    opacity: 1;
+    position: relative;
+    margin-top: 10px;
+}
+
+.card-description-p{
+    text-align: left;
+    font: normal normal normal 32px/43px Open Sans;
+    letter-spacing: 0px;
+    color: #000000;
+    opacity: 1;
+    position:relative;
+    margin-top: 10px;
+}
+
+.when-where{
+    text-align: left;
+    font: normal normal bold 32px/43px Open Sans;
+    letter-spacing: 0px;
+    color: #000000;
+    opacity: 1;
+    margin-top: 10px;
+    margin-left: 30px;
+}
+.where {
+    margin-top: 50px;
+}
+.when-where-p{
+    text-align: left;
+    font: normal normal normal 32px/43px Open Sans;
+    letter-spacing: 0px;
+    color: #000000;
+    opacity: 1;
+    margin-left: 30px;
+    margin-top: -20px;
+}
+

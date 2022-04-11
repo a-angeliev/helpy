@@ -7,7 +7,7 @@
     <div class="row">
         <div class="col-md-3 border-right">
             <div class="d-flex flex-column align-items-center text-center p-3 py-5">
-                <img class="rounded-circle mt-5" width="150px" src="{{ profile.picture }}">
+                <img class="rounded-circle mt-5" alt="no image" width="150px" src="{{ profile.profile_image.url }}">
                 <span class="font-weight-bold">{{ profile.first_name }}</span>
                 <span class="text-black-50">{{ profile.user.email }}</span>
                 <span class="text-black-50">
@@ -53,10 +53,10 @@
         </div>
         <div class="col-md-4">
             <div class="p-3 py-5">
-                {{ own_length }}
-{#                <div class="d-flex justify-content-between align-items-center experience"><span>Edit Experience</span><span class="border px-3 p-1 add-experience">Experience</span></div><br>#}
+                <div>
+                    <h4 class="text-left">Your offers</h4>
                 {% for shelter in own_shelters %}
-                <div class="col-md-12">
+                    <div class="col-md-12">
 
                         <div class="own-shelters">
                         <div class="profile-card-title">
@@ -91,7 +91,7 @@
                                 | Garage
                               {% endif %}
                         </div>
-                        <div class="profile-card-edit"><a href="{% url 'edit shelter' shelter.id %}">Edit</a>              <a href="{% url 'delete shelter' shelter.id %}">Delete</a></div>
+                        <div class="profile-card-edit"><a class="text-muted" href="{% url 'edit shelter' shelter.id %}">Edit</a>             <a class="text-muted" href="{% url 'delete shelter' shelter.id %}">Delete</a></div>
 
                     </div>
 
@@ -99,6 +99,33 @@
 
                 </div> <br>
                 {% endfor %}
+                </div>
+
+
+                {% for job in own_jobs %}
+                    <div class="col-md-12">
+
+                        <div class="own-shelters">
+                        <div class="profile-card-title">
+                            {{ job.title }}
+                        </div>
+                        <div class="profile-card-descrition">
+                            {{ job.description|truncatechars:70 }}
+                        </div>
+                        <div class="profile-card-city">
+                            {{ job.city }}
+                        </div>
+                        <div class="profile-card-bullets">
+                            <p>Type of compensation: {{ job.compensation }}</p>
+                            <p>Amount of compensation: {{ job.money }}</p>
+
+                        </div>
+                        <div class="profile-card-edit"><a class="text-muted" href="{% url 'edit job' job.id %}">Edit</a>        <a class="text-muted" href="{% url 'delete job' job.id %}">Delete</a></div>
+
+                    </div>
+                </div> <br>
+                {% endfor %}
+
 {#                <div class="col-md-12"><label class="labels">Additional Details</label><input type="text" class="form-control" placeholder="additional details" value=""></div>#}
             </div>
         </div>

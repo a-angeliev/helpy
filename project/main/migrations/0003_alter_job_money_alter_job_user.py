@@ -7,19 +7,27 @@ import django.db.models.deletion
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('accounts', '0001_initial'),
-        ('main', '0002_alter_shelter_user'),
+        ("accounts", "0001_initial"),
+        ("main", "0002_alter_shelter_user"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='job',
-            name='money',
-            field=models.IntegerField(choices=[['Single payment', 'Single payment'], ['Hourly', 'Hourly']], max_length=14),
+            model_name="job",
+            name="money",
+            field=models.IntegerField(
+                choices=[["Single payment", "Single payment"], ["Hourly", "Hourly"]],
+                max_length=14,
+            ),
         ),
         migrations.AlterField(
-            model_name='job',
-            name='user',
-            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, to='accounts.profile'),
+            model_name="job",
+            name="user",
+            field=models.ForeignKey(
+                blank=True,
+                null=True,
+                on_delete=django.db.models.deletion.CASCADE,
+                to="accounts.profile",
+            ),
         ),
     ]

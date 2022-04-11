@@ -18,9 +18,14 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
 
+from project.main.views.errors import Custom404View, Custom403View
+
+handler404 = Custom404View.as_view()
+handler403 = Custom403View.as_view()
+
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', include('project.main.urls')),
-    path('accounts/', include('project.accounts.urls')),
-    path('auth/', include('django.contrib.auth.urls')),
+    path("admin/", admin.site.urls),
+    path("", include("project.main.urls")),
+    path("accounts/", include("project.accounts.urls")),
+    path("auth/", include("django.contrib.auth.urls")),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

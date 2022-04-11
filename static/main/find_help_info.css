@@ -1,0 +1,153 @@
+body{
+    background: transparent linear-gradient(0deg, #019ACA 0%, #4AE6AD 100%) 0% 0% no-repeat padding-box;
+    height: 100%;
+    /*background-position: center 0;*/
+    background-attachment: fixed;
+    /*background-size: cover;*/
+    /*-webkit-background-size: cover;*/
+    /*-o-background-size: cover;*/
+    /*-moz-background-size: cover;*/
+}
+
+#find-help-info-main{
+    /*border-style: solid;*/
+    /*border-width: 1px;*/
+    display: flex;
+    position: relative;
+    top: 50px;
+    margin: 40px;
+    /*margin-right: 20px;*/
+    /*right: 50px;*/
+    /*left: 50px;*/
+    max-width: 100%;
+    max-height: 100%;
+}
+
+img{
+    position: relative;
+    align-items: center;
+    max-height: 100%;
+    /*border-style: solid;*/
+    /*border-width: 1px;*/
+}
+.main-find-help-divs{
+    /*border-style: solid;*/
+    /*border-width: 1px;*/
+
+    width: 50%;
+    /*height: 600px;*/
+    max-height: 100%;
+}
+#find-help-left{
+    background: rgba(255, 255, 255, 0.4) 0% 0% no-repeat padding-box;
+    border-radius: 50px;
+    /*opacity: 0.4 !important;*/
+
+
+}
+#find-help-right{
+    text-align: center;
+}
+
+.help-bubble {
+        width: 63px;
+        height: 63px;
+        border-radius: 50%;
+        display: flex;
+        font-size: 30px;
+        position: relative;
+        top: 31px;
+        background: rgba(69, 218, 63, 1) 0% 0% no-repeat padding-box;
+        margin: auto;
+        justify-content: center;
+        /*border-width: 1px;*/
+        /*border-style: solid;*/
+
+
+}
+.bubble-div{
+    position: relative;
+    max-width: 0%;
+    height:0;
+    max-height: 0%;
+    top: 30px;
+    left: -32px;
+
+}
+.help-bubble p{
+     position: relative;
+        margin:auto;
+
+        /*top: 5px;*/
+        /*left: -1px;*/
+        /*text-align: center;*/
+        /*align-items: center;*/
+
+}
+
+.row{
+    /*border-style: solid;*/
+    /*border-width: 1px;*/
+
+    max-width: 100%;
+    margin: 45px;
+    display:flex;
+    text-align: left;
+    font: normal normal normal 32px/43px Open Sans;
+    letter-spacing: 0px;
+    color: #000000;
+
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    box-shadow: 0px 3px 6px #00000059;
+    opacity: 1 ;
+}
+.info{
+    /*border-style: solid;*/
+    /*border-width: 1px;*/
+    max-width: 100%;
+    margin-left: 45px;
+
+}
+.info h3{
+    font: normal normal bold 32px/43px Open Sans;
+    letter-spacing: 0px;
+    color: #000000;
+}
+.info p{
+    font: normal normal normal 32px/43px Open Sans;
+    letter-spacing: 0px;
+    color: #000000;
+}
+
+#find-help-btn{
+    position: relative;
+    /*display:flex;*/
+    margin: auto;
+    text-align: center;
+    /*border-style: solid;*/
+    /*border-width: 1px;*/
+    width: 100%;
+}
+#btn{
+
+    position: relative;
+    padding: 10px;
+    margin: auto;
+    width: 271px;
+    height: 73px;
+    background: #0EA7C6 0% 0% no-repeat padding-box;
+    box-shadow: 0px 3px 6px #00000029;
+    border-radius: 9px;
+    opacity: 1;
+
+}
+#button-register-help, #btn_register{
+    position: relative;
+    margin: 45px;
+     /*display:flex;*/
+    /*text-align: left;*/
+    font: normal normal normal 32px/43px Open Sans;
+    /*letter-spacing: 0px;*/
+    color: #000000;
+    opacity: 1;
+}

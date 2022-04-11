@@ -1,0 +1,13 @@
+{% extends 'base.html'%}
+
+{% load static %}
+
+{% block page_content %}
+
+    <form method="post" action="{% url 'create questionnaire' %}">
+        {% csrf_token %}
+        {{ form }}
+        <button type="submit">Submit</button>
+    </form>
+
+{% endblock %}

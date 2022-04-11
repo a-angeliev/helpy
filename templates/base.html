@@ -21,7 +21,8 @@
     <link rel="stylesheet"  type="text/css" href={% static 'main/style.css' %} />
           <script src="{% static 'js/nav.js' %}" type="module"></script>
         </head>
-
+    {% block static_files %}
+    {% endblock %}
 <body>
 
 
@@ -42,7 +43,7 @@
                         <a class="nav-link"  style="color: #0c3045; " href="{% url 'provide help info' %}">Provide help</a>
                     </li>
                     <li class="nav-item px-3">
-                        <a class="nav-link" style="color: #0c3045;"href="#">Find help</a>
+                        <a class="nav-link" style="color: #0c3045;"href="{% url 'find help info' %}">Find help</a>
                     </li>
                 {% endif %}
 
@@ -64,7 +65,7 @@
                     {% endif %}
                 {% endif %}
                     <li class="nav-item px-3">
-                        <a class="nav-link" style="color: #0c3045;"href="#">Donate campaign</a>
+                        <a class="nav-link" style="color: #0c3045;"href="{% url 'campaign' %}">Donate campaign</a>
                     </li>
 
 
@@ -92,9 +93,9 @@
 
 
 <!-- Page Footer -->
-<footer class="fixed-bottom  card-footer" id = "">
-    <div>@2022 Python Web Framework project at SoftUni</div>
-</footer>
+{#<footer class="fixed-bottom  card-footer" id = "">#}
+{#    <div>@2022 Python Web Framework project at SoftUni</div>#}
+{#</footer>#}
 <!-- End Page Footer -->
 
 </body>

@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block static_files %}
+    <link rel="stylesheet" href="{% static "main/errors/403.css" %}">
+{% endblock %}
+
+{% block page_content %}
+
+    <div id="image-404">
+        <img alt="404 image" src="{% static "images/403.png" %}">
+        <div id="back-link">
+            <a href="{% url "index" %}">&lt; BACK TO HOME</a>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block static_files %}
+        <link rel="stylesheet" href="{% static 'main/find_help_info.css' %}">
+{% endblock %}
+{% block page_content %}
+
+<div id="find-help-info-main">
+    <div class="main-find-help-divs" id="find-help-left">
+        <div class="row">
+            <div class="bubble-div">
+                <div class="help-bubble">
+                    <p>1</p>
+                </div>
+            </div>
+            <div class="help-info">
+                <div class="info">
+                    <h3>Find shelter</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae consequuntur deleniti, dolores ea, earum iste itaque laboriosam molestiae molestias nemo obcaecati pariatur porro quaerat quis similique voluptatem voluptatum? Quae, tempora!</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="bubble-div">
+                <div class="help-bubble">
+                    <p>2</p>
+                </div>
+            </div>
+            <div class="help-info">
+                <div class="info">
+                    <h3>Find shelter</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae consequuntur deleniti, dolores ea, earum iste itaque laboriosam molestiae molestias nemo obcaecati pariatur porro quaerat quis similique voluptatem voluptatum? Quae, tempora!</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="bubble-div">
+                <div class="help-bubble">
+                    <p>3</p>
+                </div>
+            </div>
+            <div class="help-info">
+                <div class="info">
+                    <h3>Find shelter</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae consequuntur deleniti, dolores ea, earum iste itaque laboriosam molestiae molestias nemo obcaecati pariatur porro quaerat quis similique voluptatem voluptatum? Quae, tempora!</p>
+                </div>
+            </div>
+        </div>
+        <div id="button-register-help">
+            <div id="find-help-btn">
+                <div id="btn">
+                    <a id="btn_register" href="{% url 'register as' %}">REGISTER</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="main-find-help-divs" id="find-help-right">
+        <img  alt="background image" src="{% static 'images/find_help_info.png'%}">
+    </div>
+</div>
+{% endblock %}

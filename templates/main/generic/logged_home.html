@@ -1,0 +1,18 @@
+{% extends 'base.html'%}
+
+{% load static %}
+{% block static_files %}
+    <link rel='stylesheet' href="{% static 'main/generic/logged_home.css' %}">
+{% endblock %}
+{% block page_content %}
+
+     <div class="cont-register-as">
+    </div>
+
+    <div class="bg-register-as">
+        <div id="provide-help-background-image1">
+
+        </div>
+    </div>
+    <div class="fixed-bottom"><img src="{% static 'images/logged_home.png' %}"></div>
+{% endblock %}

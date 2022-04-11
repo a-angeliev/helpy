@@ -1,5 +1,5 @@
 body {
-    background: transparent linear-gradient(180deg, #019ACA 0%, #4AE6AD 100%) 0% 0% no-repeat padding-box;
+    background: transparent linear-gradient(0deg, #019ACA 0%, #4AE6AD 100%) 0% 0% no-repeat padding-box;
     height: 100%;
     background-position: center 0;
     /*background-repeat: no-repeat;*/
@@ -60,12 +60,16 @@ body {
 
 /*SHELTER CSS*/
 .own-shelters{
-    border-style: solid;
-    border-width: 1px;
+    /*border-style: solid;*/
+    /*border-width: 1px;*/
     position: relative;
     left: -30px;
     width: 120%;
     padding: 5px;
+    float: left;
+    border-width: 1px;
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.35);
+    margin-top: 10px;
     /*max-height: 150px;*/
 
 }

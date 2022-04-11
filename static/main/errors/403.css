@@ -1,0 +1,43 @@
+#image-404{
+    /*border-style: solid;*/
+    border-width: 1px;
+    border-radius: 10px;
+    /*position: relative;*/
+    width: 70%;
+    height: 100%;
+    margin: auto;
+    text-align: center;
+    background: #eeeeee;
+}
+#image-404 a{
+    /*font-size: 30px;*/
+    font: normal normal 600 30px/34px Open Sans;
+    letter-spacing: 0px;
+    /*border-style: solid;*/
+    /*border-width: 1px;*/
+    position: relative;
+    width: 100%;
+    color: #000000;
+}
+img{
+    position: relative;
+    margin-top: 70px;
+}
+#back-link{
+    /*border-style: solid;*/
+    /*border-width: 1px;*/
+    position: relative;
+    width: 100%;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    text-align: center;
+
+}
+body{
+    align-items: center;
+    color: #000000;
+    background: transparent linear-gradient(0deg, #019ACA 0%, #4AE6AD 100%) 0% 0% no-repeat padding-box;
+    height: 100%;
+    background-attachment: fixed;
+
+}

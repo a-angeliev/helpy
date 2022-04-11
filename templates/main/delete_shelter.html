@@ -1,14 +1,125 @@
 {% extends "base.html" %}
-{% block page_content %}
-    <p>THis is delete</p>
-    <p>Object ={{ object }}</p>
-    <p>objectPk ={{ object.pk }}</p>
-    <p>context={{ context }}</p>
+{% load static %}
 
-    <form method="POST" action="{% url 'delete shelter' object.pk %}">
-    {% csrf_token %}
-    {{ form }}
-    <button type="submit">Click</button>
-    </form>
+{% block static_files %}
+     <link rel='stylesheet' href="{% static 'main/edit_job.css' %}">
+{% endblock %}
+{% block page_content %}
+
+    <div id="edit-job-page">>
+    <h3 class="text-center">Are you sure you wat to delete this shelter</h3>
+    <div id="shelter-infomation-box">
+        <div id="shelter-creation-form">
+        <div class="card shadow-2-strong card-registration" style="border-radius: 15px;">
+          <div class="card-body p-4 p-md-5">
+            <h3 class="mb-4 pb-2 pb-md-0 mb-md-5"></h3>
+
+              <div class="row">
+                <div class="col-md-6 mb-4">
+                  <div class="form-outline">
+                        <label for="">Title</label>
+                    <input type="text" class="form-control" disabled placeholder="{{ object.title }}">
+                  </div>
+                </div>
+
+                <div class="col-md-6 mb-4">
+                  <div class="form-outline">
+                        <label for="">Number of rooms</label>
+                      <input type="text" class="form-control" disabled placeholder="{{ object.room_number }}">
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-6 mb-4">
+                  <div class="form-outline">
+                        <label for="">City</label>
+                      <input type="text" class="form-control" disabled placeholder="{{ object.city }}">
+                  </div>
+                </div>
+
+                <div class="col-md-6 mb-4">
+                  <div class="form-outline">
+                        <label for="">Number of people</label>
+                      <input type="text" class="form-control" disabled placeholder="{{ object.ppl_number }}">
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="row">
+                <div class="col-md-6 mb-4">
+                  <div class="form-outline">
+                        <label for="">Description</label>
+                      <textarea cols=4 rows=10 class="form-control" disabled placeholder="{{ object.description }}"></textarea>
+                  </div>
+                </div>
+
+                  <div class="col-md-6 mb-4">
+                      <div id="shelter-checkbox-create">
+                          <label for=""> </label>
+                          <div id="checkbox-left">
+                              <div class="checkbox-shelter">
+                                  <div class="checkbox-input">
+                                   <input type="checkbox" {% if object.has_wc %} checked {% endif %} class="form-control" disabled >
+                                  </div>
+                                  <div class="checkbox-lable">
+                                    <label for="">WC</label>
+                                  </div>
+
+                              </div>
+                               <div class="checkbox-shelter">
+                                  <div class="checkbox-input">
+                                      <input type="checkbox" {% if  object.has_kitchen %} checked {% endif %} class="form-control"  disabled >
+                                  </div>
+                                  <div class="checkbox-lable">
+                                    <label for="">Kitchen</label>
+                                  </div>
+
+                              </div>
+                               <div class="checkbox-shelter">
+                                  <div class="checkbox-input">
+                                      <input type="checkbox" {% if  object.has_net %} checked {% endif %} class="form-control" disabled >
+                                  </div>
+                                  <div class="checkbox-lable">
+                                    <label for="">Net</label>
+                                  </div>
+
+                              </div>
+                          </div>
+                          <div id="checkbox-right">
+                              <div class="checkbox-shelter">
+                                  <div class="checkbox-input">
+                                      <input type="checkbox" {% if  object.has_garage %} checked {% endif %} class="form-control" disabled >
+                                  </div>
+                                  <div class="checkbox-lable">
+                                    <label for="">Garage</label>
+                                  </div>
+                          </div>
+                              <div class="checkbox-shelter">
+                                  <div class="checkbox-input">
+                                       <input type="checkbox" {% if  object.has_tv %} checked {% endif %} class="form-control" disabled>
+                                  </div>
+                                  <div class="checkbox-lable">
+                                    <label for="">TV</label>
+                                  </div>
+                          </div>
+                          </div>
+                      </div>
+                    </div>
+              </div>
+              <form method="POST" action="{% url 'delete shelter' object.pk %}">
+                 {% csrf_token %}
+                  {{ form }}
+                  <div class="mt-4 pt-2" id="submit-register-form">
+                      <input class="btn btn-primary btn-lg" style="color:#000000;" id="submit-register-form-btn" type="submit" value="DELETE" />
+                  </div>
+              </form>
+          </div>
+        </div>
+        </div>
+    </div>
+    </div>
+
 
 {% endblock %}

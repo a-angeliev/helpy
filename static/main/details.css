@@ -230,8 +230,7 @@ html, body {
   grid-template-columns: auto auto auto;
   padding: 1px;
 
-  /*border-style: solid;*/
-  /*border-width: 1px;*/
+
 }
 .grid-item{
   position:relative;
@@ -279,4 +278,29 @@ html, body {
   justify-content: center;
   /*border-style: solid;*/
   /*border-width: 1px;*/
+}
+.pagination{
+  /*font-size: 40px;*/
+  /*width: 100%;  /*width: 100%;*/
+  position: relative;
+  margin:auto;
+  width:70%;
+  margin-top: 30px;
+  /*text-align: center;*/
+  align-items: center;
+  color: #000000;
+  /*border-style: solid;*/
+  /*border-width: 1px;*/
+}
+.pagination-nav{
+  position: relative;
+  text-align: center;
+  align-items: center;
+  margin: auto;
+  width: 400px;
+  /*border-style: solid;*/
+  /*border-width: 1px;*/
+}
+.pagination-nav{
+  margin-bottom: 50px;
 }
