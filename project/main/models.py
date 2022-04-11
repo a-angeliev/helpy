@@ -1,6 +1,6 @@
 
 from django.contrib.auth import get_user_model
-from django.core.validators import MinLengthValidator, MaxValueValidator
+from django.core.validators import MinLengthValidator, MaxValueValidator, MinValueValidator
 from django.db import models
 
 
@@ -43,13 +43,13 @@ class Shelter(models.Model):
     ppl_number = models.IntegerField(
         validators=(
             MaxValueValidator(MAX_NUMBER_OF_PEOPLE),
-            MinLengthValidator(MIN_NUMBER_OF_PEOPLE),
+            MinValueValidator(MIN_NUMBER_OF_PEOPLE),
         )
     )
 
     room_number = models.IntegerField(validators=(
             MaxValueValidator(MAX_ROOM_NUMBER),
-            MinLengthValidator(MIN_ROOM_NUMBER),
+            MinValueValidator(MIN_ROOM_NUMBER),
         )
     )
 
