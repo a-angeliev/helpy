@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 import os
 from pathlib import Path
-
+import dj_database_url
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 import cloudinary
 
@@ -94,16 +94,22 @@ WSGI_APPLICATION = "project.wsgi.application"
 #     }
 # }
 
-DATABASES = {
-    "default": {
-        "HOST": os.getenv("DB_HOST", "127.0.0.1"),
-        "PORT": os.getenv("DB_PORT", "5432"),
-        "NAME": os.getenv("DB_NAME", "web-framework-project"),
-        "USER": os.getenv("DB_USER", 'postgres'),
-        "PASSWORD": os.getenv("DB_PASSWORD", 'test123'),
-        "ENGINE": "django.db.backends.postgresql",
-    }
+# DATABASES = {
+#     "default": {
+#         "HOST": os.getenv("DB_HOST", "127.0.0.1"),
+#         "PORT": os.getenv("DB_PORT", "5432"),
+#         "NAME": os.getenv("DB_NAME", "web-framework-project"),
+#         "USER": os.getenv("DB_USER", 'postgres'),
+#         "PASSWORD": os.getenv("DB_PASSWORD", 'test123'),
+#         "ENGINE": "django.db.backends.postgresql",
+#     }
+#
+# }
 
+DATABASES = {
+    "default": dj_database_url.config(
+        default=os.getenv("DATABASE_URL"), conn_max_age=600
+    )
 }
 # DATABASES = {
 #     "default": {
