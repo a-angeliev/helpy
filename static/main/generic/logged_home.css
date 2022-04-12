@@ -21,6 +21,70 @@ body{
      overflow: hidden;
 }
 
-#fixed-bottom{
-    bottom: -200px;
+* {
+  box-sizing: border-box;
+}
+
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+[class*="col-"] {
+  float: left;
+  padding: 15px;
+}
+
+.col-1 {width: 8.33%;}
+.col-2 {width: 16.66%;}
+.col-3 {width: 25%;}
+.col-4 {width: 33.33%;}
+.col-5 {width: 41.66%;}
+.col-6 {width: 50%;}
+.col-7 {width: 58.33%;}
+.col-8 {width: 66.66%;}
+.col-9 {width: 75%;}
+.col-10 {width: 83.33%;}
+.col-11 {width: 91.66%;}
+.col-12 {width: 100%;}
+
+
+img {
+  width: 100%;
+  height: auto;
+
+  /*  !*border-style: solid;*!*/
+  /*  !*border-width: 1px;*!*/
+}
+
+h1{
+    text-align: left;
+font: normal normal bold 100px/125px Lobster Two;
+letter-spacing: 0px;
+color: #040404;
+opacity: 1;
+}
+
+p{
+    text-align: left;
+font: normal normal normal 32px/43px Open Sans;
+letter-spacing: 0px;
+color: #000000;
+opacity: 1;
+}
+
+.row{
+    position: relative;
+    margin-left: 40px;
+    margin-top: 5%;
+}
+
+.btn_register a{
+    left: auto;
+    top: auto;
+}
+
+.description-container{
+    margin-top: 10%;
 }

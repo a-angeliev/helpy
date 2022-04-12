@@ -27,7 +27,7 @@ class DetailsShelterView(views.DetailView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context["pesho"] = "pesho"
-        creator = Profile.objects.filter(pk=self.object.user.id)
+        creator = Profile.objects.filter(pk=self.object.user.pk)
         if creator:
             context["creator"] = creator[0]
 
@@ -42,9 +42,8 @@ class EditShelterView(
     model = Shelter
     # fields = ("title", "city", "description", "ppl_number", "room_number", "has_wc", "has_net", "has_kitchen", "has_tv", "has_garage",)
 
-    # TODO: shound change link when i make details shelter page
     def get_success_url(self, *kwargs):
-        return reverse_lazy("details shelter", kwargs={"pk": self.object.pk})
+        return reverse_lazy("profile details", kwargs={"pk": self.request.user.id})
 
 
 class DeleteShelterView(

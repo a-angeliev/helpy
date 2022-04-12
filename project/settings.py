@@ -94,34 +94,26 @@ WSGI_APPLICATION = "project.wsgi.application"
 #     }
 # }
 
-# DATABASES = {
-#     "default": {
-#         "HOST": os.getenv("DB_HOST", "127.0.0.1"),
-#         "PORT": os.getenv("DB_PORT", "5432"),
-#         "NAME": os.getenv("DB_NAME", "web-framework-project"),
-#         "USER": os.getenv("DB_USER", 'postgres'),
-#         "PASSWORD": os.getenv("DB_PASSWORD", 'test123'),
-#         "ENGINE": "django.db.backends.postgresql",
-#     }
-#
-# }
+if os.getenv("IS_PRODUCTION", "True") == "True":
+    DATABASES = {
+        "default": {
+            "ENGINE": "django.db.backends.postgresql",
+            "HOST": os.getenv("DB_HOST", "127.0.0.1"),
+            "PORT": os.getenv("DB_PORT", "5432"),
+            "NAME": os.getenv("DB_NAME", "web-framework-project"),
+            "USER": os.getenv("DB_USER", 'postgres'),
+            "PASSWORD": os.getenv("DB_PASSWORD", 'test123'),
 
-DATABASES = {
-    "default": dj_database_url.config(
-        default=os.getenv("DATABASE_URL"), conn_max_age=600
-    )
-}
-# DATABASES = {
-#     "default": {
-#         "ENGINE": "django.db.backends.postgresql",
-#         "NAME": 'd2plvoc3v82a4k',
-#         "USER": 'dlrlxabetshiag',
-#         "PASSWORD": '68cf6b6d8ae34df9f08abadf903dcc21ad8d4e3e34c45b6375a9e89fdfcfa644',
-#         "HOST": 'ec2-176-34-211-0.eu-west-1.compute.amazonaws.com',
-#         "PORT": "5432",
-#     }
-#
-# }
+        }
+
+    }
+else:
+    DATABASES = {
+        "default": dj_database_url.config(
+            default=os.getenv("DATABASE_URL"), conn_max_age=600
+        )
+    }
+
 
 cloudinary.config(
   cloud_name = os.getenv("CLOUD_NAME", ''),

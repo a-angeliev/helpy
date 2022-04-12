@@ -29,28 +29,30 @@
                 <div class="d-flex justify-content-between align-items-center mb-3">
                     <h4 class="text-right">Profile Settings</h4>
                 </div>
-                <form method="post" action="{% url 'profile edit' user.id %}">
+                <form method="post" action="{% url 'profile edit' user.id %}" enctype="multipart/form-data">
                     {% csrf_token %}
                     <div class="row mt-2">
+{{ form.first_name.errors }}
                         {{ form.first_name.errors }}
                         {{ form.last_name.errors }}
                         {{ form.gender.errors }}
                         {{ form.date_of_birth.errors }}
-                        {{ form.picture.errors }}
+                        {{ form.phone_number.errors }}
                         {{ form.about_yourself.errors }}
-
+                      {{ form.profile_image.errors }}
                     </div>
                 <div class="row mt-2">
-                    <div class="col-md-6"><label class="labels" for="{{ form.first_name.id_for_label }}">Name</label>{{ form.first_name.errors }}{{ form.first_name }}</div>
+                    <div class="col-md-6"><label class="labels" for="{{ form.first_name.id_for_label }}">Name</label>{{ form.first_name }}</div>
                     <div class="col-md-6"><label class="labels" for="{{ form.last_name.id_for_label }}">Surname</label>{{ form.last_name }}</div>
                 </div>
                 <div class="row mt-3">
 {#                    <div class="col-md-12"><label class="labels">Mobile Number</label><input type="text" class="form-control" placeholder="{{ profile.phone_number}}"  value=""></div>#}
-                    <div class="col-md-12"><label class="labels" for="{{ form.first_name.id_for_label }}">Mobile Number</label>{{ form.phone_number }}</div>
+                    <div class="col-md-12"><label class="labels" for="{{ form.phone_number.id_for_label }}">Mobile Number</label>{{ form.phone_number }}</div>
                     <div class="col-md-12"><label class="labels" for="{{ form.gender.id_for_label }}">Gender</label>{{ form.gender}}</div>
                     <div class="col-md-12"><label class="labels" for="{{ form.date_of_birth.id_for_label }}">Date of birth</label>{{ form.date_of_birth}}</div>
-                    <div class="col-md-12"><label class="labels" for="{{ form.picture.id_for_label }}">Picture URL</label>{{ form.picture}}</div>
-                    <div class="col-md-12"><label class="labels" for="{{ form.about_yourself.id_for_label }}">About yourself</label><{{ form.about_yourself }}</div>
+{#                    <div class="col-md-12"><label class="labels" for="{{ form.picture.id_for_label }}">Picture URL</label>{{ form.picture}}</div>#}
+                    <div class="col-md-12"><label class="labels" for="{{ form.about_yourself.id_for_label }}">About yourself</label>{{ form.about_yourself }}</div>
+                    <div class="col-md-12"><label class="labels" for="{{ form.profile_image.id_for_label }}">Profile image</label>{{ form.profile_image}}</div>
 
                 </div>
 {#                <div class="row mt-3">#}

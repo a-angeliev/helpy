@@ -7,7 +7,11 @@
     <div class="row">
         <div class="col-md-3 border-right">
             <div class="d-flex flex-column align-items-center text-center p-3 py-5">
+            {% if is_product %}
                 <img class="rounded-circle mt-5" alt="no image" width="150px" src="{{ profile.profile_image.url }}">
+                {% else %}
+                <img class="rounded-circle mt-5" alt="no image" width="150px" src="{{ profile.profile_image }}">
+                {% endif %}
                 <span class="font-weight-bold">{{ profile.first_name }}</span>
                 <span class="text-black-50">{{ profile.user.email }}</span>
                 <span class="text-black-50">
@@ -35,7 +39,7 @@
                     <div class="col-md-12"><label class="labels">Mobile Number</label><input type="text" class="form-control" placeholder="{{ profile.phone_number}}" disabled value=""></div>
                     <div class="col-md-12"><label class="labels">Gender</label><input type="text" class="form-control" placeholder="{{ profile.gender}}" disabled value=""></div>
                     <div class="col-md-12"><label class="labels">Date of birth</label><input type="text" class="form-control" placeholder="{{ profile.date_of_birth}}" disabled value=""></div>
-                    <div class="col-md-12"><label class="labels">Picture URL</label><input type="text" class="form-control" placeholder="{{ profile.picture}}" disabled value=""></div>
+{#                    <div class="col-md-12"><label class="labels">Picture URL</label><input type="text" class="form-control" placeholder="{{ profile.picture}}" disabled value=""></div>#}
                     <div class="col-md-12"><label class="labels">About yourself</label><textarea type="text" class="form-control" rows=5 placeholder="{{ profile.about_yourself }}" disabled ></textarea></div>
                     <div class="col-md-12"><label class="labels">Last login</label><input type="text" class="form-control" placeholder="{{ profile.user.last_login}}" disabled value=""></div>
                     <div class="col-md-12"><label class="labels">Date of join</label><input type="text" class="form-control" placeholder="{{ profile.user.date_joined}}" disabled value=""></div>

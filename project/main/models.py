@@ -92,7 +92,7 @@ class Job(models.Model):
         max_length=MAX_DESCRIPTION_LENGTH,
     )
 
-    money = models.IntegerField(validators=(MaxValueValidator(10000),))
+    money = models.IntegerField(validators=(MaxValueValidator(10000), MinValueValidator(0),))
 
     compensation = models.CharField(
         max_length=PaymentOptions().max_payment_length(),

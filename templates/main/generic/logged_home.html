@@ -3,6 +3,7 @@
 {% load static %}
 {% block static_files %}
     <link rel='stylesheet' href="{% static 'main/generic/logged_home.css' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 {% endblock %}
 {% block page_content %}
 
@@ -14,5 +15,18 @@
 
         </div>
     </div>
-    <div class="fixed-bottom"><img src="{% static 'images/logged_home.png' %}"></div>
+    <div class="row">
+        <div class="col-5 description-container" >
+            <h1>Let's get it started!</h1>
+            <p>If you choose to provide shelter for someone Hiss and stare at nothing then run suddenly away if it fits, i sits have secret plans.</p>
+            <div class="btn_register">
+{#                <div>#}
+                    <a id="btn_register4" href="{% url 'register as' %}">MORE INFORMATION</a>
+{#                    </div>#}
+            </div>
+        </div>
+        <div class="col-7 ">
+            <img src="{% static 'images/logged_home.png' %}">
+        </div>
+    </div>
 {% endblock %}

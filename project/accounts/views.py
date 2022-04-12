@@ -1,3 +1,5 @@
+import os
+
 from django.contrib.auth import mixins
 from django.shortcuts import render
 from django.urls import reverse_lazy
@@ -34,6 +36,10 @@ class UserRegisterHelperView(RedirectToDashboard, views.CreateView):
         form_kwargs['request'] = self.request
         return form_kwargs
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['is_production'] = os.getenv("IS_PRODUCTION", "False") == "True"
+        return context
 
 class UserRegisterRefugeeView(RedirectToDashboard, views.CreateView):
     form_class = CreateProfileRefugeeForm
@@ -82,9 +88,7 @@ class ProfileDetailsView(
         return context
 
 
-class ProfileEditView(
-    mixins.LoginRequiredMixin, TheCreatorPermissionMixin, views.UpdateView
-):
+class ProfileEditView(mixins.LoginRequiredMixin, TheCreatorPermissionMixin, views.UpdateView):
     template_name = "accounts/profile_edit.html"
     form_class = EditProfileForm
     model = Profile

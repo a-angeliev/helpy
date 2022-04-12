@@ -2,7 +2,7 @@ import datetime
 
 from django.contrib.auth.models import User
 from django.core.exceptions import ValidationError
-from django.core.validators import MaxValueValidator, MinLengthValidator, EmailValidator
+from django.core.validators import MaxValueValidator, MinLengthValidator, EmailValidator, MinValueValidator
 from django.db import models
 from django.contrib.auth import models as auth_models
 from cloudinary import models as cloudinary_models
@@ -44,6 +44,8 @@ class Profile(models.Model):
     LAST_NAME_MAX_LENGTH = 30
     ABOUT_YOURSELF_MAX_LENGTH = 512
 
+    # This represent 14 digit number
+    PHONE_NUMBER_MAX_LENGTH = 99999999999999
     MALE = "Male"
     FEMALE = "Female"
 
@@ -63,11 +65,7 @@ class Profile(models.Model):
 
     profile_image = cloudinary_models.CloudinaryField('image')
 
-    phone_number = models.IntegerField(
-        validators=(
-            MaxValueValidator(15),
-            MinLengthValidator(5),)
-    )
+    phone_number = models.IntegerField(validators=(MaxValueValidator(PHONE_NUMBER_MAX_LENGTH), ))
 
     date_of_birth = models.DateField(
         null=True,

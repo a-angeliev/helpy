@@ -18,7 +18,13 @@ class CreateProfileFormAbstract(BootstrapFormMixin, auth_forms.UserCreationForm)
     last_name = forms.CharField(max_length=Profile.LAST_NAME_MAX_LENGTH)
     profile_image = forms.ImageField()
     phone_number = forms.IntegerField()
-    date_of_birth = forms.DateField()
+    date_of_birth = forms.DateField(
+        widget=forms.TextInput(
+            attrs={
+                "placeholder": "YYYY-MM-DD",
+            }
+        )
+    )
     gender = forms.ChoiceField(
         choices=Profile.GENDERS,
     )
@@ -79,30 +85,30 @@ class CreateProfileFormAbstract(BootstrapFormMixin, auth_forms.UserCreationForm)
             "about_yourself",
         )
 
-        widgets = {
-            "first_name": forms.TextInput(
-                attrs={
-                    "placeholder": "Enter first name",
-                },
-            ),
-            "last_name": forms.TextInput(
-                attrs={
-                    "placeholder": "Enter last name",
-                },
-            ),
-            "picture": forms.TextInput(
-                attrs={
-                    "placeholder": "Enter URL",
-                },
-            ),
-            "email": forms.EmailInput(
-                attrs={
-                    "placeholder": "Enter some Email:",
-                    "id": "form2Example11",
-                    "class": "123",
-                },
-            ),
-        }
+        # widgets = {
+        #     "password1": forms.TextInput(
+        #         attrs={
+        #             "placeholder": "Password1",
+        #         },
+        #     ),
+        #     "first_name": forms.TextInput(
+        #         attrs={
+        #             "placeholder": "Enter first name",
+        #         },
+        #     ),
+        #     "last_name": forms.TextInput(
+        #         attrs={
+        #             "placeholder": "Enter last name",
+        #         },
+        #     ),
+        #     "email": forms.EmailInput(
+        #         attrs={
+        #             "placeholder": "Enter someEmail:",
+        #             # "id": "form2Example11",
+        #             # "class": "123",
+        #         },
+        #     ),
+        # }
 
 
 class CreateProfileStaffForm(CreateProfileFormAbstract):
@@ -144,6 +150,7 @@ class EditProfileForm(BootstrapFormMixin, forms.ModelForm):
         super().__init__(*args, **kwargs)
         self._init_bootstrap_form_controls()
 
+
     class Meta:
         model = Profile
-        exclude = ("user",)
+        exclude = ("user", "profile_image")
