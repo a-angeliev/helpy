@@ -94,7 +94,7 @@ WSGI_APPLICATION = "project.wsgi.application"
 #     }
 # }
 
-if os.getenv("IS_PRODUCTION", "False") == "True":
+if os.getenv("ON_PRODUCTION", "False") == "False":
     DATABASES = {
         "default": {
             "ENGINE": "django.db.backends.postgresql",

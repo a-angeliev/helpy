@@ -85,6 +85,7 @@ class ProfileDetailsView(
         own_jobs = Job.objects.all().filter(user_id=self.request.user.id)
         context["own_shelters"] = own_shelters
         context["own_jobs"] = own_jobs
+        context["on_production"] = os.getenv("ON_PRODUCTION") == "True"
         return context
 
 
