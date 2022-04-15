@@ -16,6 +16,6 @@ class CreateQuestionnaireView(views.CreateView):
         return kwargs
 
 
-class ALlQuestionnaireView(views.ListView):
-    template_name = "main/questionnaire/list_questionnaire.html"
-    model = Questionnaire
+# class ALlQuestionnaireView(views.ListView):
+#     template_name = "main/questionnaire/list_questionnaire.html"
+#     model = Questionnaire

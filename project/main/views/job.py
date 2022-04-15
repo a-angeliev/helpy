@@ -19,9 +19,7 @@ class CreateJobView(mixins.LoginRequiredMixin, views.CreateView):
         return kwargs
 
 
-class EditJobView(
-    mixins.LoginRequiredMixin, TheCreatorPermissionMixin, views.UpdateView
-):
+class EditJobView(mixins.LoginRequiredMixin, TheCreatorPermissionMixin, views.UpdateView):
     template_name = "main/job/edit_job.html"
     form_class = EditJobForm
     model = Job
@@ -29,15 +27,8 @@ class EditJobView(
     def get_success_url(self, *kwargs):
         return reverse_lazy("profile details", kwargs={"pk": self.request.user.id})
 
-    # fields = ("title", "description", "money", "compensation", "city",)
 
-    # def test_func(self):
-    #     return self.get_object().user_id == self.request.user.id
-
-
-class DetailsJobView(
-    mixins.LoginRequiredMixin, TheCreatorPermissionMixin, views.DetailView
-):
+class DetailsJobView(mixins.LoginRequiredMixin, TheCreatorPermissionMixin, views.DetailView):
     template_name = "main/job/details_job.html"
     model = Job
 
@@ -49,9 +40,7 @@ class DetailsJobView(
         return context
 
 
-class DeleteJobView(
-    mixins.LoginRequiredMixin, TheCreatorPermissionMixin, views.DeleteView
-):
+class DeleteJobView(mixins.LoginRequiredMixin, TheCreatorPermissionMixin, views.DeleteView):
     template_name = "main/job/delete_job.html"
     model = Job
 

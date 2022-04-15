@@ -2,7 +2,7 @@ from django.contrib.auth import forms as auth_forms, login
 from django import forms
 
 
-from project.accounts.models import Profile, ProjectUser
+from project.accounts.models import Profile
 from project.common.helpers import BootstrapFormMixin, DisabledFieldsFormMixin
 
 UserModel = auth_forms.get_user_model()
@@ -29,7 +29,6 @@ class CreateProfileFormAbstract(BootstrapFormMixin, auth_forms.UserCreationForm)
         choices=Profile.GENDERS,
     )
     about_yourself = forms.CharField(
-        # max_length=Profile.ABOUT_YOURSELF_MAX_LENGTH,
         widget=forms.Textarea(
             attrs={
                 "rows": 4,
@@ -85,30 +84,6 @@ class CreateProfileFormAbstract(BootstrapFormMixin, auth_forms.UserCreationForm)
             "about_yourself",
         )
 
-        # widgets = {
-        #     "password1": forms.TextInput(
-        #         attrs={
-        #             "placeholder": "Password1",
-        #         },
-        #     ),
-        #     "first_name": forms.TextInput(
-        #         attrs={
-        #             "placeholder": "Enter first name",
-        #         },
-        #     ),
-        #     "last_name": forms.TextInput(
-        #         attrs={
-        #             "placeholder": "Enter last name",
-        #         },
-        #     ),
-        #     "email": forms.EmailInput(
-        #         attrs={
-        #             "placeholder": "Enter someEmail:",
-        #             # "id": "form2Example11",
-        #             # "class": "123",
-        #         },
-        #     ),
-        # }
 
 
 class CreateProfileStaffForm(CreateProfileFormAbstract):

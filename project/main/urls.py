@@ -36,7 +36,7 @@ urlpatterns = (
     path("shelter/create/", CreateShelterView.as_view(), name="create shelter"),
     path("shelter/delete/<int:pk>/", DeleteShelterView.as_view(), name="delete shelter" ),
     path("shelter/edit/<int:pk>/", EditShelterView.as_view(), name="edit shelter"),
-    path("shelter/details/<int:pk>/",DetailsShelterView.as_view(),name="details shelter",),
+    path("shelter/details/<int:pk>/",DetailsShelterView.as_view(),name="details shelter"),
 
     path("job/", AllJobView.as_view(), name="jobs"),
     path("job/create/", CreateJobView.as_view(), name="create job"),
@@ -45,7 +45,7 @@ urlpatterns = (
     path("job/delete/<int:pk>/", DeleteJobView.as_view(), name="delete job"),
 
 
-    path("questionnaire/create/", CreateQuestionnaireView.as_view(), name="create questionnaire",),
+    path("questionnaire/create/", CreateQuestionnaireView.as_view(), name="create questionnaire"),
     path("campaign/", AllCampaignView.as_view(), name="campaign"),
-    path("test/", Custom403View.as_view(), name="test"),
+    # path("test/", Custom403View.as_view(), name="test"),
 )

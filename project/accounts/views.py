@@ -1,25 +1,22 @@
 import os
 
 from django.contrib.auth import mixins
-from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views import generic as views
 from django.contrib.auth import views as auth_views, get_user_model
 
-# Create your views here.
+
 from project.accounts.forms import (
-    CreateProfileStaffForm,
     CreateProfileHelperForm,
     DeleteProfileForm,
     EditProfileForm,
     CreateProfileRefugeeForm,
 )
-from project.accounts.models import Profile, ProjectUser
+from project.accounts.models import Profile
 from project.common.view_mixins import RedirectToDashboard, TheCreatorPermissionMixin
 from project.main.models import Shelter, Job, Questionnaire
 
 UserModel = get_user_model()
-
 
 
 class UserRegisterHelperView(RedirectToDashboard, views.CreateView):
@@ -103,13 +100,9 @@ class ProfileEditView(mixins.LoginRequiredMixin, TheCreatorPermissionMixin, view
         return reverse_lazy("profile details", kwargs={"pk": self.object.pk})
 
 
-class ProfileDeleteView(
-    mixins.LoginRequiredMixin, TheCreatorPermissionMixin, views.DeleteView
-):
+class ProfileDeleteView(mixins.LoginRequiredMixin, TheCreatorPermissionMixin, views.DeleteView):
     template_name = "accounts/profile_delete.html"
     form_class = DeleteProfileForm
     model = UserModel
     success_url = reverse_lazy("index")
 
-    # def get_queryset(self):
-    #     pass

@@ -2,12 +2,11 @@ import datetime
 
 from django.contrib.auth.models import User
 from django.core.exceptions import ValidationError
-from django.core.validators import MaxValueValidator, MinLengthValidator, EmailValidator, MinValueValidator
+from django.core.validators import MaxValueValidator, EmailValidator
 from django.db import models
 from django.contrib.auth import models as auth_models
 from cloudinary import models as cloudinary_models
 from project.accounts.managers import ProjectUserManager
-from project.common.validators import validate_image
 
 
 class ProjectUser(auth_models.AbstractBaseUser, auth_models.PermissionsMixin):
@@ -61,7 +60,6 @@ class Profile(models.Model):
 
     last_name = models.CharField(max_length=LAST_NAME_MAX_LENGTH, )
 
-    # picture = models.URLField()
 
     profile_image = cloudinary_models.CloudinaryField('image')
 

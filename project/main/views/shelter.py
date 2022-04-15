@@ -3,8 +3,7 @@ from django.urls import reverse_lazy
 from django.views import generic as views
 
 from project.accounts.models import Profile
-from project.common.helpers import BootstrapFormMixin
-from project.common.view_mixins import RedirectToDashboard, TheCreatorPermissionMixin
+from project.common.view_mixins import  TheCreatorPermissionMixin
 from project.main.forms import CreateShelterForm, EditShelterForm
 from project.main.models import Shelter
 
@@ -40,7 +39,6 @@ class EditShelterView(
     template_name = "main/shelter/edit_shelter.html"
     form_class = EditShelterForm
     model = Shelter
-    # fields = ("title", "city", "description", "ppl_number", "room_number", "has_wc", "has_net", "has_kitchen", "has_tv", "has_garage",)
 
     def get_success_url(self, *kwargs):
         return reverse_lazy("profile details", kwargs={"pk": self.request.user.id})

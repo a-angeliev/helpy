@@ -25,14 +25,4 @@ class RedirectToQuestionnaire:
             return redirect("create questionnaire")
 
         return super().dispatch(request, *args, **kwargs)
-# class SameUserOnlyMixin(object):
-#
-#     def has_permissions(self):
-#         # Assumes that your Article model has a foreign key called `auteur`.
-#         return self.get_object().auteur == self.request.user
-#
-#     def dispatch(self, request, *args, **kwargs):
-#         if not self.has_permissions():
-#             raise Http404('You do not have permission.')
-#         return super(SameUserOnlyMixin, self).dispatch(
-#             request, *args, **kwargs)
+

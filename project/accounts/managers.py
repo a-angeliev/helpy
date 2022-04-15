@@ -11,26 +11,26 @@ class ProjectUserManager(auth_base.BaseUserManager):
         user.save(using=self._db)
         return user
 
-    def create_helper_user(self, email, password=None, **extra_fields):
-        extra_fields.setdefault("is_staff", False)
-        extra_fields.setdefault("is_superuser", False)
-        extra_fields.setdefault("is_refugee", False)
-        extra_fields.setdefault("is_helper", True)
-        return self._create_user(email, password, **extra_fields)
-
-    def create_refugee_user(self, email, password=None, **extra_fields):
-        extra_fields.setdefault("is_staff", False)
-        extra_fields.setdefault("is_superuser", False)
-        extra_fields.setdefault("is_refugee", True)
-        extra_fields.setdefault("is_helper", False)
-        return self._create_user(email, password, **extra_fields)
-
-    def create_staff_user(self, email, password=None, **extra_fields):
-        extra_fields.setdefault("is_staff", True)
-        extra_fields.setdefault("is_superuser", False)
-        extra_fields.setdefault("is_refugee", False)
-        extra_fields.setdefault("is_helper", False)
-        return self._create_user(email, password, **extra_fields)
+    # def create_helper_user(self, email, password=None, **extra_fields):
+    #     extra_fields.setdefault("is_staff", False)
+    #     extra_fields.setdefault("is_superuser", False)
+    #     extra_fields.setdefault("is_refugee", False)
+    #     extra_fields.setdefault("is_helper", True)
+    #     return self._create_user(email, password, **extra_fields)
+    #
+    # def create_refugee_user(self, email, password=None, **extra_fields):
+    #     extra_fields.setdefault("is_staff", False)
+    #     extra_fields.setdefault("is_superuser", False)
+    #     extra_fields.setdefault("is_refugee", True)
+    #     extra_fields.setdefault("is_helper", False)
+    #     return self._create_user(email, password, **extra_fields)
+    #
+    # def create_staff_user(self, email, password=None, **extra_fields):
+    #     extra_fields.setdefault("is_staff", True)
+    #     extra_fields.setdefault("is_superuser", False)
+    #     extra_fields.setdefault("is_refugee", False)
+    #     extra_fields.setdefault("is_helper", False)
+    #     return self._create_user(email, password, **extra_fields)
 
     def create_superuser(self, email, password=None, **extra_fields):
         extra_fields.setdefault("is_staff", True)
