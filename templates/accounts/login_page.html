@@ -21,22 +21,26 @@
                 <form method="post" action="{% url "login user"%}">
                     {% csrf_token %}
                   <p>Please login to your account</p>
+                    <div>
+                        {{ form.username.errors }}
+                        {{ form.password.errors }}
+                    </div>
 
                   <div class="form-outline mb-4">
                     <label for="{{ form.username.id_for_label }}">Email:</label>
                       {{ form.username|add_class:'form-control'}}
-                      {{ form.username.errors }}
+
                  </div>
 
                   <div class="form-outline mb-4">
                     <label for="{{ form.password.id_for_label }}">Password:</label>
                       {{ form.password|add_class:'form-control'}}
-                      {{ form.password.errors }}
+
                   </div>
 
                   <div class="text-center pt-1 mb-5 pb-1">
                     <button class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3" type="submit">Login</button>
-                    <a class="text-muted" href="#">Forgot password?</a>
+{#                    <a class="text-muted" href="#">Forgot password?</a>#}
                   </div>
 
                   <div class="d-flex align-items-center justify-content-center pb-4">

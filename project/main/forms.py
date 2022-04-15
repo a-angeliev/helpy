@@ -5,7 +5,7 @@ from project.accounts.models import Profile
 from project.common.helpers import BootstrapFormMixin
 from project.main.models import Shelter, Job, Questionnaire
 
-#
+
 UserModel = get_user_model()
 
 

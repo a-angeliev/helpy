@@ -1,13 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block page_content%}
-{#    <div>#}
-{#        <form method="POST" action="{% url 'create job' %}">#}
-{#            {{ form }}#}
-{#            {% csrf_token %}#}
-{#            <button type="submit">Submit</button>#}
-{#        </form>#}
-{#    </div>#}
+
 
      <link rel='stylesheet' href="{% static 'main/create_shelter.css' %}">
 
@@ -27,7 +21,7 @@
         </div>
 
         <div id="create-shelter-description">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque et, neque. A alias asperiores explicabo, fuga nisi odit perspiciatis praesentium quam repudiandae, sequi sit tempore voluptate voluptatum! Facere similique, ullam?</p>
+            <p>One of the options to help is to offer a paid job. You need to create an appropriate name for the job offer, to mention in which city it will take place, a brief description of the assigned work, the type of compensation and the amount in Bulgarian levs. Everything you think thay may be important as information, you can share in the descruption as well.</p>
 
         </div>
 
@@ -38,11 +32,17 @@
             <h3 class="mb-4 pb-2 pb-md-0 mb-md-5"></h3>
               <form method="POST" action="{% url 'create job' %}" >
                 {% csrf_token %}
-
+                <div class="row">
+                    {{ form.title.errors }}
+                    {{ form.compensation.errors }}
+                    {{ form.city.errors }}
+                    {{ form.money.errors }}
+                    {{ form.description.errors }}
+                </div>
               <div class="row">
                 <div class="col-md-6 mb-4">
                   <div class="form-outline">
-                    {{ form.title.errors }}
+
                         <label for="{{ form.title.id_for_label }}">Title</label>
                     {{ form.title }}
                   </div>
@@ -50,7 +50,7 @@
 
                 <div class="col-md-6 mb-4">
                   <div class="form-outline">
-                      {{ form.compensation.errors }}
+
                         <label for="{{ form.compensation.id_for_label }}">Type of compensation</label>
                       {{ form.compensation }}
                   </div>
@@ -60,7 +60,7 @@
               <div class="row">
                 <div class="col-md-6 mb-4">
                   <div class="form-outline">
-                    {{ form.city.errors }}
+
                         <label for="{{ form.city.id_for_label }}">City</label>
                       {{ form.city }}
                   </div>
@@ -68,7 +68,7 @@
 
                 <div class="col-md-6 mb-4">
                   <div class="form-outline">
-                      {{ form.money.errors }}
+
                         <label for="{{ form.money.id_for_label }}">Amount of compensation</label>
                       {{ form.money }}
                   </div>
@@ -79,7 +79,7 @@
               <div class="row">
                 <div class="col-md-6 mb-4">
                   <div class="form-outline">
-                      {{ form.description.errors }}
+
                         <label for="{{ form.description.id_for_label }}">Description</label>
                       {{ form.description}}
                   </div>
@@ -91,6 +91,10 @@
                       <input class="btn btn-primary btn-lg" style="color:#000000;" id="submit-register-form-btn" type="submit" value="Submit" />
                   </div>
             </form>
+
+          </div>
+        </div>
+        </div>
 
 
 

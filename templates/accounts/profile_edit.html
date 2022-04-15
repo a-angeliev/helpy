@@ -32,14 +32,14 @@
                 <form method="post" action="{% url 'profile edit' user.id %}" enctype="multipart/form-data">
                     {% csrf_token %}
                     <div class="row mt-2">
-{{ form.first_name.errors }}
+                        {{ form.first_name.errors }}
                         {{ form.first_name.errors }}
                         {{ form.last_name.errors }}
                         {{ form.gender.errors }}
                         {{ form.date_of_birth.errors }}
                         {{ form.phone_number.errors }}
                         {{ form.about_yourself.errors }}
-                      {{ form.profile_image.errors }}
+                        {{ form.profile_image.errors }}
                     </div>
                 <div class="row mt-2">
                     <div class="col-md-6"><label class="labels" for="{{ form.first_name.id_for_label }}">Name</label>{{ form.first_name }}</div>

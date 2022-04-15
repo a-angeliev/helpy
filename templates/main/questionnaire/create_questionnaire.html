@@ -1,13 +1,16 @@
 {% extends 'base.html'%}
 
 {% load static %}
-
+{% block static_files %}
+    <link rel='stylesheet' href="{% static 'main/generic/questionnarie.css' %}">
+{% endblock %}
 {% block page_content %}
-
+    <div id="questionnaire-div">
     <form method="post" action="{% url 'create questionnaire' %}">
         {% csrf_token %}
         {{ form }}
         <button type="submit">Submit</button>
     </form>
+    </div>
 
 {% endblock %}

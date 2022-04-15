@@ -16,7 +16,7 @@ from project.accounts.forms import (
 )
 from project.accounts.models import Profile, ProjectUser
 from project.common.view_mixins import RedirectToDashboard, TheCreatorPermissionMixin
-from project.main.models import Shelter, Job
+from project.main.models import Shelter, Job, Questionnaire
 
 UserModel = get_user_model()
 
@@ -41,19 +41,22 @@ class UserRegisterHelperView(RedirectToDashboard, views.CreateView):
         context['is_production'] = os.getenv("IS_PRODUCTION", "False") == "True"
         return context
 
+
 class UserRegisterRefugeeView(RedirectToDashboard, views.CreateView):
     form_class = CreateProfileRefugeeForm
     template_name = "accounts/register_refugee_page.html"
-    success_url = reverse_lazy("index")
 
     def get_form_kwargs(self):
         form_kwargs = super().get_form_kwargs()
         form_kwargs['request'] = self.request
         return form_kwargs
-# class UserRegisterHelperView(views.CreateView):
-#     form_class = CreateProfileHelperForm
-#     template_name = 'accounts/profile_create_helper.html'
-#     success_url = reverse_lazy('index')
+
+    def get_success_url(self):
+        questionnaire = Questionnaire.objects.filter(user_id=self.request.user.id).exists()
+        is_refugee = self.request.user.is_refugee
+        if questionnaire == False and is_refugee:
+            return reverse_lazy('create questionnaire')
+        return reverse_lazy("index")
 
 
 class ChangeUserPasswordView(auth_views.PasswordChangeView):
@@ -63,12 +66,13 @@ class ChangeUserPasswordView(auth_views.PasswordChangeView):
 
 class UserLoginView(RedirectToDashboard, auth_views.LoginView):
     template_name = "accounts/login_page.html"
-    success_url = reverse_lazy("index")
 
     def get_success_url(self):
-        if self.success_url:
-            return self.success_url
-        return super().get_success_url()
+        questionnaire = Questionnaire.objects.filter(user_id=self.request.user.id).exists()
+        is_refugee = self.request.user.is_refugee
+        if questionnaire == False and is_refugee:
+            return reverse_lazy('create questionnaire')
+        return reverse_lazy("index")
 
 
 class ProfileDetailsView(
