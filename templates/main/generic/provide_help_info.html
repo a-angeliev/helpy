@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block static_files %}
+    <link rel='stylesheet' href="{% static 'main/provide-help-info.css' %}">
+{% endblock %}
+{% block page_content %}
+    <div class="cont-help">
+    </div>
+
+    <div class="bg-help">
+    </div>
+
+    <div class="page-content">
+
+        <div id="box-div-help">
+            <div class="outscope-help">
+                <div class="help-bubble" id="help-bubble-1">
+                    <p>1</p>
+                </div>
+                <div class="insidescope-help">
+
+                    <h2>Offer shelter</h2>
+                    <p>If you have a room you do not use, an abandoned country house or other offer, you can offer it to the services of homeless people</p>
+                    <div class="inside_icon" id="inside_icon_1">
+                        <img src="{% static "images/home.png" %}">
+                    </div>
+                </div>
+            </div>
+
+            <div class="outscope-help">
+                <div class="help-bubble" id="help-bubble-2">
+                    <p>2</p>
+                </div>
+                <div class="insidescope-help">
+                    <h2>Offer job</h2>
+                    <p>You can offer a job of any kind, of course for a fee. Anyone who wants to earn some money, will be able to contact you.</p>
+                    <div class="inside_icon" id="inside_icon_2">
+                        <img src="{% static "images/zoom.png" %}">
+                    </div>
+                </div>
+            </div>
+
+            <div class="outscope-help">
+                <div class="help-bubble" id="help-bubble-3">
+                    <p>3</p>
+                </div>
+                <div class="insidescope-help">
+                    <h2>Join goods</h2>
+                    <p>When we decide it is necessary, we create a campaign to collect certain vital goods to distribute to those in need.</p>
+                    <div class="inside_icon" id="inside_icon_3">
+                        <img src="{% static "images/gift.png" %}">
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="bottom_img_help">
+            <img id="clap" src="{% static "images/claping.png"%}">
+        </div>
+        <div class="btn_register">
+            <a id="btn_register" href="{% url 'register as' %}">REGISTER</a>
+        </div>
+
+
+    </div>
+{% endblock %}

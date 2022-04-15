@@ -9,7 +9,7 @@ from project.main.models import Job
 
 
 class CreateJobView(mixins.LoginRequiredMixin, views.CreateView):
-    template_name = "main/create_job.html"
+    template_name = "main/job/create_job.html"
     form_class = CreateJobForm
     success_url = reverse_lazy("index")
 
@@ -22,7 +22,7 @@ class CreateJobView(mixins.LoginRequiredMixin, views.CreateView):
 class EditJobView(
     mixins.LoginRequiredMixin, TheCreatorPermissionMixin, views.UpdateView
 ):
-    template_name = "main/edit_job.html"
+    template_name = "main/job/edit_job.html"
     form_class = EditJobForm
     model = Job
 
@@ -38,7 +38,7 @@ class EditJobView(
 class DetailsJobView(
     mixins.LoginRequiredMixin, TheCreatorPermissionMixin, views.DetailView
 ):
-    template_name = "main/details_job.html"
+    template_name = "main/job/details_job.html"
     model = Job
 
     def get_context_data(self, **kwargs):
@@ -52,7 +52,7 @@ class DetailsJobView(
 class DeleteJobView(
     mixins.LoginRequiredMixin, TheCreatorPermissionMixin, views.DeleteView
 ):
-    template_name = "main/delete_job.html"
+    template_name = "main/job/delete_job.html"
     model = Job
 
     def get_success_url(self, **kwargs):
@@ -60,7 +60,7 @@ class DeleteJobView(
 
 
 class AllJobView(mixins.LoginRequiredMixin, views.ListView):
-    template_name = "main/all_jobs.html"
+    template_name = "main/job/all_jobs.html"
     model = Job
     context_object_name = "jobs"
 

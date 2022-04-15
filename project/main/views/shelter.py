@@ -10,7 +10,7 @@ from project.main.models import Shelter
 
 
 class CreateShelterView(mixins.LoginRequiredMixin, views.CreateView):
-    template_name = "main/create_shelter.html"
+    template_name = "main/shelter/create_shelter.html"
     form_class = CreateShelterForm
     success_url = reverse_lazy("index")
 
@@ -21,7 +21,7 @@ class CreateShelterView(mixins.LoginRequiredMixin, views.CreateView):
 
 
 class DetailsShelterView(views.DetailView):
-    template_name = "main/details_shelter.html"
+    template_name = "main/shelter/details_shelter.html"
     model = Shelter
 
     def get_context_data(self, **kwargs):
@@ -37,7 +37,7 @@ class DetailsShelterView(views.DetailView):
 class EditShelterView(
     mixins.LoginRequiredMixin, TheCreatorPermissionMixin, views.UpdateView
 ):
-    template_name = "main/edit_shelter.html"
+    template_name = "main/shelter/edit_shelter.html"
     form_class = EditShelterForm
     model = Shelter
     # fields = ("title", "city", "description", "ppl_number", "room_number", "has_wc", "has_net", "has_kitchen", "has_tv", "has_garage",)
@@ -49,7 +49,7 @@ class EditShelterView(
 class DeleteShelterView(
     mixins.LoginRequiredMixin, TheCreatorPermissionMixin, views.DeleteView
 ):
-    template_name = "main/delete_shelter.html"
+    template_name = "main/shelter/delete_shelter.html"
     model = Shelter
 
     def get_success_url(self, **kwargs):
@@ -57,7 +57,7 @@ class DeleteShelterView(
 
 
 class AllSheltersView(views.ListView):
-    template_name = "main/all_shelters.html"
+    template_name = "main/shelter/all_shelters.html"
     model = Shelter
     context_object_name = "shelter"
     paginate_by = 12

@@ -15,14 +15,7 @@
             <p>Creator:</p>
             <p>Name: {{ creator.first_name }} {{ creator.last_name }}</p>
             <p>Phone: {{ creator.phone_number}}</p>
-            <p>Email: {{ object.user.email}}</p>
-
-{#            <form method="post" action="{% url 'profile edit' object.pk %}">#}
-{#                {% csrf_token %}#}
-{#                {{ form }}#}
-{##}
-{#                <button class="btn btn-primary mt-2" type="submit">Edit</button>#}
-{#            </form>#}
+{#            <p>Email: {{ object.user.email}}</p>#}
         </div>
         <div class="col-lg-3"></div>
     </div>

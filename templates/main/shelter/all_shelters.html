@@ -1,82 +1,77 @@
 {% extends 'base.html' %}
 {% load static %}
+
+{% block static_files %}
+    <link rel='stylesheet' href="{% static 'main/details.css' %}">
+{% endblock %}
 {% block page_content %}
 
-    <script src="{% static 'js/details.js' %}" type="module"></script>
-    <link rel='stylesheet' href="{% static 'main/details.css' %}">
     <h1 class="text-center">Shelter board</h1>
     <div id="details_shelter_page">
         <div id="whole_cards">
-
             {% for shelt in shelter %}
-               <div class="grid-item">
-                     <div class="center">
-
-                        <div class="card">
-    <div class="additional">
-      <div class="user-card">
-        <div class="level center">
-            {{ shelt.city }}
-        </div>
-
-      </div>
-      <div class="more-info">
-        <h1 id="more-info-h1">{{ shelt.title }}</h1>
-          <div class="card-profile-info">
-              <img  alt="Profile image"src="{% static "images/profile_image.png"%}">
-              <p>{{ shelt.user.first_name }} {{ shelt.user.last_name }}</p>
-          </div>
-          <div class="card-profile-info">
-              <img  alt="Profile image"src="{% static "images/phone.png"%}">
-              <p>{{ shelt.user.phone_number }}</p>
-          </div>
-          <div class="card-profile-info">
-              <img  alt="Profile image"src="{% static "images/email.png"%}">
-              <p>nachko01@gmail.com</p>
-          </div>
-          <div class="card-profile-info">
-              <img  alt="Profile image"src="{% static "images/calendar.png"%}">
-              <p>{{ shelt.created_on }}</p>
-          </div>
-      </div>
-    </div>
-    <div class="general">
-      <h1>{{ shelt.title }}</h1>
-      <p>{{ shelt.description }}</p>
-{#      <span class="more">Mouse over the card for more info</span>#}
-    </div>
-      <div id="help-div">
-          <ul>
-              {% if shelt.ppl_number %}
-                <li>Number of people: {{ shelt.ppl_number }}</li>
-              {% endif %}
-                {% if shelt.room_number %}
-                <li>Room number: {{ shelt.room_number }}</li>
-              {% endif %}
-              {% if shelt.has_wc %}
-                <li>WC</li>
-              {% endif %}
-              {% if shelt.has_net %}
-                <li>Net</li>
-              {% endif %}
-              {% if shelt.has_kitchen %}
-                <li>Kitchen</li>
-              {% endif %}
-              {% if shelt.has_tv %}
-                <li>TV</li>
-              {% endif %}
-              {% if shelt.has_garage %}
-                <li>Garage</li>
-              {% endif %}
-          </ul>
-      </div>
-  </div>
-
-                     </div>
+            <div class="grid-item">
+                 <div class="center">
+                    <div class="card">
+                        <div class="additional">
+                          <div class="user-card">
+                            <div class="level center">
+                                {{ shelt.city }}
+                            </div>
+                        </div>
+                        <div class="more-info">
+                            <h1 id="more-info-h1">{{ shelt.title }}</h1>
+                              <div class="card-profile-info">
+                                  <img  alt="Profile image"src="{% static "images/profile_image.png"%}">
+                                  <p>{{ shelt.user.first_name }} {{ shelt.user.last_name }}</p>
+                              </div>
+                              <div class="card-profile-info">
+                                  <img  alt="Profile image"src="{% static "images/phone.png"%}">
+                                  <p>{{ shelt.user.phone_number }}</p>
+                              </div>
+                              <div class="card-profile-info">
+                                  <img  alt="Profile image"src="{% static "images/email.png"%}">
+                                  <p>nachko01@gmail.com</p>
+                              </div>
+                              <div class="card-profile-info">
+                                  <img  alt="Profile image"src="{% static "images/calendar.png"%}">
+                                  <p>{{ shelt.created_on }}</p>
+                              </div>
+                          </div>
+                        </div>
+                        <div class="general">
+                          <h1>{{ shelt.title }}</h1>
+                          <p>{{ shelt.description }}</p>
+                        </div>
+                          <div id="help-div">
+                              <ul>
+                                  {% if shelt.ppl_number %}
+                                    <li>Number of people: {{ shelt.ppl_number }}</li>
+                                  {% endif %}
+                                    {% if shelt.room_number %}
+                                    <li>Room number: {{ shelt.room_number }}</li>
+                                  {% endif %}
+                                  {% if shelt.has_wc %}
+                                    <li>WC</li>
+                                  {% endif %}
+                                  {% if shelt.has_net %}
+                                    <li>Net</li>
+                                  {% endif %}
+                                  {% if shelt.has_kitchen %}
+                                    <li>Kitchen</li>
+                                  {% endif %}
+                                  {% if shelt.has_tv %}
+                                    <li>TV</li>
+                                  {% endif %}
+                                  {% if shelt.has_garage %}
+                                    <li>Garage</li>
+                                  {% endif %}
+                              </ul>
+                          </div>
+                    </div>
                  </div>
+             </div>
             {% endfor %}
-
-
         </div>
     </div>
     <nav class="pagination-nav" aria-label="Page navigation">

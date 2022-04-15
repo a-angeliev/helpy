@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block static_files %}
+    <link rel='stylesheet' href="{% static 'main/details.css' %}">
+{% endblock %}
+{% block page_content %}
+
+    <h1 class="text-center">Job board</h1>
+    <div id="details_shelter_page">
+        <div id="whole_cards">
+            {% for work in jobs %}
+            <div class="grid-item">
+                <div class="center">
+
+                    <div class="card">
+                        <div class="additional">
+                            <div class="user-card">
+                                <div class="level center">
+                                    {{ work.city }}
+                                </div>
+                            </div>
+                            <div class="more-info">
+                                <h1 id="more-info-h1">{{ work.title }}</h1>
+                                <div class="card-profile-info">
+                                    <img  alt="Profile image"src="{% static "images/profile_image.png"%}">
+                                    <p>{{ work.user.first_name }} {{ work.user.last_name }}</p>
+                                </div>
+                                <div class="card-profile-info">
+                                    <img  alt="Profile image"src="{% static "images/phone.png"%}">
+                                    <p>{{ work.user.phone_number }}</p>
+                                </div>
+                                <div class="card-profile-info">
+                                  <img  alt="Profile image"src="{% static "images/email.png"%}">
+                                  <p>nachko01@gmail.com</p>
+                                </div>
+                                <div class="card-profile-info">
+                                  <img  alt="Profile image"src="{% static "images/calendar.png"%}">
+                                  <p>{{ work.created_on }}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="general">
+                            <h1>{{ work.title }}</h1>
+                            <p>{{ work.description }}</p>
+                        </div>
+                        <div id="help-div">
+                            <ul>
+                              <li>Amount of compensation: {{ work.money }}</li>
+                              <li>Type of compensation: {{ work.compensation }}</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <nav class="pagination-nav" aria-label="Page navigation">
+      <ul class="pagination justify-content-center">
+        {% if page_obj.has_previous %}
+          <li class="page-item">
+            <a class="page-link" href="?page={{ page_obj.previous_page_number }}">Previous</a>
+          </li>
+        {% else %}
+          <li class="page-item disabled">
+            <a class="page-link" href="#" tabindex="-1" aria-disabled="True">Previous</a>
+          </li>
+        {% endif %}
+        {% for i in page_obj.paginator.page_range %}
+          {% if page_obj.number == i %}
+            <li class="page-item active" aria-current="page">
+              <span class="page-link">
+                {{ i }}
+                <span class="sr-only">(current)</span>
+              </span>
+            </li>
+          {% else %}
+            <li class="page-item"><a class="page-link" href="?page={{ i }}">{{ i }}</a></li>
+          {% endif %}
+        {% endfor %}
+        {% if page_obj.has_next %}
+          <li class="page-item">
+            <a class="page-link" href="?page={{ page_obj.next_page_number }}">Next</a>
+          </li>
+        {% else %}
+          <li class="page-item disabled">
+            <a class="page-link" href="#" tabindex="-1" aria-disabled="True">Next</a>
+          </li>
+        {% endif %}
+      </ul>
+    </nav>
+{% endblock %}

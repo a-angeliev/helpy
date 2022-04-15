@@ -1,14 +1,10 @@
 {% extends "base.html" %}
 {% block page_content %}
-    <p>THis is delete</p>
-    <p>Object ={{ object }}</p>
-    <p>objectPk ={{ object.pk }}</p>
-    <p>context={{ context }}</p>
 
     <form method="POST" action="{% url 'profile delete' object.pk %}">
     {% csrf_token %}
     {{ form }}
-    <button type="submit">Click</button>
+        <button type="submit">Click</button>
     </form>
 
 {% endblock %}

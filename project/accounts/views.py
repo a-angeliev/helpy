@@ -20,10 +20,6 @@ from project.main.models import Shelter, Job, Questionnaire
 
 UserModel = get_user_model()
 
-# class UserRegisterStaffView(views.CreateView):
-#     form_class = CreateProfileStaffForm
-#     template_name = 'accounts/profile_create_helper.html'
-#     success_url = reverse_lazy('index')
 
 
 class UserRegisterHelperView(RedirectToDashboard, views.CreateView):

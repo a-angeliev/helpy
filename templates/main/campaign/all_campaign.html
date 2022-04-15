@@ -1,11 +1,12 @@
 {% extends 'base.html'%}
 
 {% load static %}
-
+{% block static_files %}
+    <link rel='stylesheet' href="{% static 'main/campaign/all_campaign.css' %}">
+{% endblock %}
 {% block page_content %}
 
 
-    <link rel='stylesheet' href="{% static 'main/campaign/all_campaign.css' %}">
     <div class="cont-help">
     </div>
 

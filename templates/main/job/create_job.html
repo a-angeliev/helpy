@@ -1,9 +1,12 @@
 {% extends 'base.html' %}
 {% load static %}
+
+{% block static_files %}
+     <link rel='stylesheet' href="{% static 'main/create_shelter.css' %}">
+{% endblock %}
 {% block page_content%}
 
 
-     <link rel='stylesheet' href="{% static 'main/create_shelter.css' %}">
 
     <div class="cont-create-shelter">
     </div>
@@ -94,8 +97,8 @@
 
           </div>
         </div>
-        </div>
-
+    </div>
+    </div>
 
 
 {% endblock %}

@@ -1,14 +1,16 @@
 {% extends 'base.html' %}
 {% load static %}
 {% load widget_tweaks %}
-{% block page_content %}
+
+{% block static_files %}
     <link rel='stylesheet' href="{% static 'main/accounts/register_helper.css' %}">
+{% endblock %}
+
+{% block page_content %}
     <div class="cont-register-helper">
-
     </div>
-
     <div class="bg-register-helper">
-    <div id="register-background-image">
+        <div id="register-background-image">
             <img src="{% static 'images/register.png' %}">
         </div>
     </div>
@@ -139,7 +141,6 @@
 </section>
 
  <script>
-        {#const inpFile = document.getElementById("inpFile");#}
         const inpFile = document.querySelector("#image-div-input input")
         const previewContainer = document.getElementById("imagePreview");
         const previewImage = previewContainer.querySelector(".image-preview__image");

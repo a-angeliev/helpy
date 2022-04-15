@@ -1,15 +1,18 @@
 {% extends 'base.html' %}
 {% load static %}
 {% load widget_tweaks %}
-{% block page_content %}
+
+{% block static_files %}
     <link rel='stylesheet' href="{% static 'main/accounts/register_helper.css' %}">
+{% endblock %}
+
+{% block page_content %}
 
     <div class="cont-register-helper">
-
     </div>
 
     <div class="bg-register-helper">
-    <div id="register-background-image">
+        <div id="register-background-image">
             <img src="{% static 'images/register.png' %}">
         </div>
     </div>
@@ -118,19 +121,6 @@
                   </div>
                 </div>
 
-{#                  <div class="col-md-6 mb-4">#}
-{#                      {{ form.picture.errors }}#}
-{#                        <label for="{{ form.picture.id_for_label }}">Photo image:</label>#}
-{#                      {{ form.picture}}#}
-{#                       <div>#}
-{#                          <label for="inpFile">Upload profile picture</label>#}
-{#                          <div class="image-preview" id="imagePreview">#}
-{#                              <img src="" alt="Image Preview" class="image-preview__image">#}
-{#                              <span class="image-preview__default-text">Image Preview</span>#}
-{#                          </div>#}
-{#                           <input type="file" name="inpFile" id="inpFile">#}
-{#                       </div>#}
-{#                    </div>#}
                     <div class="col-md-6 mb-4" id="image-div-input">
                        <div>
                           <label for="inpFile">Upload profile picture</label>
@@ -139,12 +129,9 @@
                               <span class="image-preview__default-text">Image Preview</span>
                           </div>
                         <label for="{{ form.profile_image.id_for_label }}"></label>
-{#                           <input type="file" name="inpFile" id="inpFile">#}
                            {{   form.profile_image|remove_attr:"class" }}
                        </div>
                     </div>
-
-
               </div>
                   <div class="mt-4 pt-2" id="submit-register-form">
                       <input class="btn btn-primary btn-lg" style="color:#000000;" id="submit-register-form-btn" type="submit" value="Submit" />
@@ -159,7 +146,6 @@
 </section>
 
     <script>
-        {#const inpFile = document.getElementById("inpFile");#}
         const inpFile = document.querySelector("#image-div-input input")
         const previewContainer = document.getElementById("imagePreview");
         const previewImage = previewContainer.querySelector(".image-preview__image");
